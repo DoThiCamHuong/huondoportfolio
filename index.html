@@ -154,11 +154,27 @@
     color: var(--accent2); border: 1px solid rgba(255,99,117,0.3); padding: 3px 10px; border-radius: 2px;
   }
 
-  /* EXPERIENCE */
-  .exp-list { display: flex; flex-direction: column; }
+  /* EXPERIENCE + TOOLS 2-COL */
+  .exp-tools-layout {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 80px;
+    align-items: start;
+  }
+  .exp-tools-layout .tools-wrap {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+    position: sticky;
+    top: 100px;
+  }
+  @media (max-width: 900px) {
+    .exp-tools-layout { grid-template-columns: 1fr; gap: 48px; }
+    .exp-tools-layout .tools-wrap { position: static; }
+  }
   .exp-item {
-    display: grid; grid-template-columns: 260px 1fr;
-    gap: 48px; padding: 48px 0;
+    display: grid; grid-template-columns: 300px 1fr;
+    gap: 56px; padding: 48px 0;
     border-bottom: 1px solid var(--border);
     transition: padding-left 0.3s;
     align-items: start;
@@ -172,6 +188,7 @@
     color: var(--white); line-height: 1.1;
     margin-bottom: 10px;
     transition: color 0.3s;
+    word-break: keep-all;
   }
   .exp-period {
     font-family: 'Space Mono', monospace;
@@ -201,11 +218,11 @@
   /* TOOLS */
   .tools-wrap { margin-top: 60px; padding-top: 48px; border-top: 1px solid var(--border); }
   .tools-label { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.2em; color: var(--accent); margin-bottom: 28px; }
-  .tools { display: flex; flex-wrap: wrap; gap: 12px 28px; align-items: center; }
+  .tools { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 24px; align-items: center; }
   .tool {
-    display: flex; flex-direction: row; align-items: center; gap: 10px;
+    display: flex; flex-direction: row; align-items: center; gap: 12px;
     cursor: none; transition: transform 0.3s, opacity 0.3s;
-    opacity: 0.7;
+    opacity: 0.75;
   }
   .tool:hover { transform: translateY(-2px); opacity: 1; }
   .tool-icon {
@@ -215,7 +232,7 @@
     border: 1px dashed transparent; transition: border-color 0.3s;
   }
   .tool-icon:hover { border-color: rgba(245,240,232,0.3); }
-  .tool-icon img, .tool-icon > svg { width: 100%; height: 100%; object-fit: contain; display: block; border-radius: 8px; }
+  .tool-icon img { width: 100%; height: 100%; object-fit: contain; display: block; border-radius: 8px; filter: none; }
   .tool-icon-upload {
     position: absolute; inset: 0; opacity: 0; cursor: pointer; z-index: 2;
   }
@@ -468,6 +485,7 @@
     <div class="sec-title">EXPERIENCE</div>
   </div>
 
+  <div class="exp-tools-layout">
   <div class="exp-list">
 
     <!-- SUCCESS SPHERE -->
@@ -598,130 +616,85 @@
       </div>
     </div>
 
-  </div>
+  </div><!-- end exp-list -->
 
   <div class="tools-wrap reveal">
     <div class="tools-label">— TOOLS & SOFTWARE</div>
     <div class="tools stagger">
 
       <div class="tool">
-        <div class="tool-icon">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" alt="Figma"/>
-          <input type="file" accept="image/*" class="tool-icon-upload"/>
-        </div>
+        <div class="tool-icon"><img src="https://drive.google.com/thumbnail?id=1X_iv5W1JzpkYOx49XiaT2yZrueMqjIi_&sz=w100" alt="Figma"/></div>
         <span class="tool-name">Figma</span>
       </div>
 
       <div class="tool">
-        <div class="tool-icon">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/a/af/Adobe_Photoshop_CC_icon.svg" alt="Photoshop"/>
-          <input type="file" accept="image/*" class="tool-icon-upload"/>
-        </div>
+        <div class="tool-icon"><img src="https://drive.google.com/thumbnail?id=1BHvNp2LJ7J3TL_xRdCba0ZOVpTWA80L-&sz=w100" alt="Photoshop"/></div>
         <span class="tool-name">Photoshop</span>
       </div>
 
       <div class="tool">
-        <div class="tool-icon">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Adobe_Illustrator_CC_icon.svg" alt="Illustrator"/>
-          <input type="file" accept="image/*" class="tool-icon-upload"/>
-        </div>
+        <div class="tool-icon"><img src="https://drive.google.com/thumbnail?id=1GWShXoB-1nxtxWs43tJ47QjLQl61Wr4g&sz=w100" alt="Illustrator"/></div>
         <span class="tool-name">Illustrator</span>
       </div>
 
       <div class="tool">
-        <div class="tool-icon">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/4/40/Adobe_Premiere_Pro_CC_icon.svg" alt="Premiere Pro"/>
-          <input type="file" accept="image/*" class="tool-icon-upload"/>
-        </div>
+        <div class="tool-icon"><img src="https://drive.google.com/thumbnail?id=12mRRg2R9nMHuLCA_ev-fOU6giRx6x4UL&sz=w100" alt="Premiere Pro"/></div>
         <span class="tool-name">Premiere Pro</span>
       </div>
 
       <div class="tool">
-        <div class="tool-icon">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/4/48/Adobe_InDesign_CC_icon.svg" alt="InDesign"/>
-          <input type="file" accept="image/*" class="tool-icon-upload"/>
-        </div>
+        <div class="tool-icon"><img src="https://drive.google.com/thumbnail?id=1zZZugKW2xPAtz0G19moJw0lMn_7Gllo8&sz=w100" alt="InDesign"/></div>
         <span class="tool-name">InDesign</span>
       </div>
 
       <div class="tool">
-        <div class="tool-icon">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/c/cb/Adobe_After_Effects_CC_icon.svg" alt="After Effects"/>
-          <input type="file" accept="image/*" class="tool-icon-upload"/>
-        </div>
+        <div class="tool-icon"><img src="https://drive.google.com/thumbnail?id=1XVQhlBQYis8HLjAlOCmauQZ2_NzSJ0U3&sz=w100" alt="After Effects"/></div>
         <span class="tool-name">After Effects</span>
       </div>
 
       <div class="tool">
-        <div class="tool-icon">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/a/af/Adobe_Dreamweaver_CC_icon.svg" alt="Dreamweaver"/>
-          <input type="file" accept="image/*" class="tool-icon-upload"/>
-        </div>
+        <div class="tool-icon"><img src="https://drive.google.com/thumbnail?id=1Jeq7xGtTq3Cb8ytqBe96x_nwwPl4c4Yf&sz=w100" alt="Dreamweaver"/></div>
         <span class="tool-name">Dreamweaver</span>
       </div>
 
       <div class="tool">
-        <div class="tool-icon">
-          <svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><rect width="36" height="36" rx="8" fill="#8B3A10"/><path d="M8 9 L28 9 L12 27 L28 27" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
-          <input type="file" accept="image/*" class="tool-icon-upload"/>
-        </div>
+        <div class="tool-icon"><img src="https://drive.google.com/thumbnail?id=1AQbJOV_OPWInpOTds-xhGpwD2eSgp8GW&sz=w100" alt="ZBrush"/></div>
         <span class="tool-name">ZBrush</span>
       </div>
 
       <div class="tool">
-        <div class="tool-icon">
-          <svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="mg2" x1="0" y1="0" x2="36" y2="36" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#4DC8E0"/><stop offset="100%" stop-color="#1281A0"/></linearGradient></defs><rect width="36" height="36" rx="8" fill="url(#mg2)"/><text x="7" y="20" font-family="'Arial Black',sans-serif" font-weight="900" font-size="14" fill="#fff">M</text><text x="3" y="30" font-family="Arial,sans-serif" font-weight="700" font-size="7" fill="rgba(255,255,255,0.85)" letter-spacing="2.5">AYA</text></svg>
-          <input type="file" accept="image/*" class="tool-icon-upload"/>
-        </div>
+        <div class="tool-icon"><img src="https://drive.google.com/thumbnail?id=1YoU6dNzpriHiL7PY1VyilxoGZKdyhaT7&sz=w100" alt="Autodesk Maya"/></div>
         <span class="tool-name">Autodesk Maya</span>
       </div>
 
       <div class="tool">
-        <div class="tool-icon" style="border-radius:50%">
-          <svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" style="border-radius:50%"><circle cx="18" cy="18" r="18" fill="#1C1C1C"/><path d="M18 3 A15 15 0 0 1 33 18" stroke="#E8272A" stroke-width="3.5" fill="none" stroke-linecap="round"/><path d="M33 18 A15 15 0 0 1 18 33" stroke="#F5821F" stroke-width="3.5" fill="none" stroke-linecap="round"/><path d="M18 33 A15 15 0 1 1 18 3" stroke="#8B44AC" stroke-width="3.5" fill="none" stroke-linecap="round"/><circle cx="18" cy="18" r="5" fill="#E8272A"/><circle cx="18" cy="18" r="2" fill="#fff"/></svg>
-          <input type="file" accept="image/*" class="tool-icon-upload"/>
-        </div>
+        <div class="tool-icon"><img src="https://drive.google.com/thumbnail?id=135hBCXhHSJPneP_DUw_J29sSDBvKuCZY&sz=w100" alt="DaVinci Resolve"/></div>
         <span class="tool-name">DaVinci Resolve</span>
       </div>
 
-      <!-- 3D MAX -->
       <div class="tool">
-        <div class="tool-icon">
-          <svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><rect width="36" height="36" rx="8" fill="#1a1a2a"/><text x="4" y="26" font-family="'Arial Black',sans-serif" font-weight="900" font-size="13" fill="#00B0FF">3ds</text><text x="4" y="34" font-family="Arial,sans-serif" font-weight="700" font-size="7" fill="rgba(0,176,255,0.6)" letter-spacing="1">MAX</text></svg>
-          <input type="file" accept="image/*" class="tool-icon-upload"/>
-        </div>
-        <span class="tool-name">3ds Max</span>
+        <div class="tool-icon"><img src="https://drive.google.com/thumbnail?id=1PSx35xtVNDKeS-LvtR41J3MMs59JtqRR&sz=w100" alt="Substance Painter"/></div>
+        <span class="tool-name">Substance Painter</span>
       </div>
 
-      <!-- CLAUDE -->
       <div class="tool">
-        <div class="tool-icon">
-          <svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><rect width="36" height="36" rx="8" fill="#CC785C"/><text x="5" y="25" font-family="'Arial Black',sans-serif" font-weight="900" font-size="18" fill="#fff">C</text><circle cx="26" cy="18" r="5" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/></svg>
-          <input type="file" accept="image/*" class="tool-icon-upload"/>
-        </div>
+        <div class="tool-icon"><img src="https://drive.google.com/thumbnail?id=1cgoq1iufFXGlZvC67F6ggnn5733g5hl3&sz=w100" alt="Unreal Engine"/></div>
+        <span class="tool-name">Unreal Engine</span>
+      </div>
+
+      <div class="tool">
+        <div class="tool-icon"><img src="https://drive.google.com/thumbnail?id=1SdYY-HNQTdG55Q04MCOx3GeDAdXt49fn&sz=w100" alt="Claude"/></div>
         <span class="tool-name">Claude AI</span>
       </div>
 
-      <!-- KLING AI -->
       <div class="tool">
-        <div class="tool-icon">
-          <svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><rect width="36" height="36" rx="8" fill="#0d0d0d"/><text x="5" y="26" font-family="'Arial Black',sans-serif" font-weight="900" font-size="15" fill="#fff">KL</text><rect x="5" y="28" width="26" height="2" rx="1" fill="#fff" opacity="0.3"/></svg>
-          <input type="file" accept="image/*" class="tool-icon-upload"/>
-        </div>
-        <span class="tool-name">Kling AI</span>
-      </div>
-
-      <!-- GEMINI -->
-      <div class="tool">
-        <div class="tool-icon">
-          <svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><rect width="36" height="36" rx="8" fill="#1a73e8"/><path d="M18 6 C18 6 22 18 18 30 C14 18 18 6 18 6Z" fill="#fff" opacity="0.9"/><path d="M6 18 C6 18 18 14 30 18 C18 22 6 18 6 18Z" fill="#fff" opacity="0.6"/></svg>
-          <input type="file" accept="image/*" class="tool-icon-upload"/>
-        </div>
+        <div class="tool-icon"><img src="https://drive.google.com/thumbnail?id=1aZhS__5eO-GSq75Z-tdOOuRHcZKMLonP&sz=w100" alt="Gemini"/></div>
         <span class="tool-name">Gemini</span>
       </div>
 
     </div>
-  </div>
+  </div><!-- end tools-wrap -->
+  </div><!-- end exp-tools-layout -->
 </section>
 
 <div class="divider"></div>
@@ -755,11 +728,13 @@
         <img class="pcard-thumb" src="https://drive.google.com/thumbnail?id=1fzLKwK56r1d3EsvXnhVM8C2d1CwTzyWf&sz=w800" alt="Tinpet"/>
         <div class="pcard-deco"></div><div class="pcard-inner"><div class="pcard-name">Tinpet</div></div><div class="pcard-arrow">↗</div>
       </div>
-      <div class="pcard" data-project="Phúc Long" data-cat="UI/UX & Digital Product"><div class="pcard-deco"></div><div class="pcard-inner"><div class="pcard-name">Phúc Long</div></div><div class="pcard-arrow">↗</div></div>
+      <div class="pcard" data-project="Phúc Long" data-cat="UI/UX & Digital Product">
+        <img class="pcard-thumb" src="https://drive.google.com/thumbnail?id=1kbkXdDDTKLHwHkq509Eo0jskStXYt66L&sz=w800" alt="Phúc Long"/>
+        <div class="pcard-deco"></div><div class="pcard-inner"><div class="pcard-name">Phúc Long</div></div><div class="pcard-arrow">↗</div>
+      </div>
       <div class="pcard" data-project="RbR Bath" data-cat="UI/UX & Digital Product"><div class="pcard-deco"></div><div class="pcard-inner"><div class="pcard-name">RbR Bath</div></div><div class="pcard-arrow">↗</div></div>
       <div class="pcard" data-project="Grib" data-cat="UI/UX & Digital Product"><div class="pcard-deco"></div><div class="pcard-inner"><div class="pcard-name">Grib</div></div><div class="pcard-arrow">↗</div></div>
       <div class="pcard" data-project="Apartment Care" data-cat="UI/UX & Digital Product"><div class="pcard-deco"></div><div class="pcard-inner"><div class="pcard-name">Apartment Care</div></div><div class="pcard-arrow">↗</div></div>
-      <div class="pcard" data-project="Viet Hotel" data-cat="UI/UX & Digital Product"><div class="pcard-deco"></div><div class="pcard-inner"><div class="pcard-name">Viet Hotel</div></div><div class="pcard-arrow">↗</div></div>
     </div>
   </div>
 
@@ -770,18 +745,13 @@
         <img class="pcard-thumb" src="https://drive.google.com/thumbnail?id=1G9ms51b7flPQFYJn5nwgkiSYD828I2Wx&sz=w800" alt="Onwa"/>
         <div class="pcard-deco"></div><div class="pcard-inner"><div class="pcard-name">Onwa</div></div><div class="pcard-arrow">↗</div>
       </div>
-      <div class="pcard" data-project="Channel" data-cat="Motion & Video"><div class="pcard-deco"></div><div class="pcard-inner"><div class="pcard-name">Channel</div></div><div class="pcard-arrow">↗</div></div>
-      <div class="pcard" data-project="Tile" data-cat="Motion & Video">
-        <img class="pcard-thumb" src="https://drive.google.com/thumbnail?id=1SFXBZScuq53GC6rgsDAhgYJwobdTzjND&sz=w800" alt="Tile"/>
-        <div class="pcard-deco"></div><div class="pcard-inner"><div class="pcard-name">Tile</div></div><div class="pcard-arrow">↗</div>
-      </div>
-      <div class="pcard" data-project="RbR Event" data-cat="Motion & Video">
-        <img class="pcard-thumb" src="https://drive.google.com/thumbnail?id=13J2_wD8UGK0Gutvv2zIhX6LRCdpurlPO&sz=w800" alt="RbR Event"/>
-        <div class="pcard-deco"></div><div class="pcard-inner"><div class="pcard-name">RbR Event</div></div><div class="pcard-arrow">↗</div>
-      </div>
       <div class="pcard" data-project="Apartment Care Motion" data-cat="Motion & Video">
-        <img class="pcard-thumb" src="https://drive.google.com/thumbnail?id=1Iei1yUgshu9ZnGWYRDkUI3wOOAYc4sLS&sz=w800" alt="Apartment Care"/>
+        <img class="pcard-thumb" src="https://drive.google.com/thumbnail?id=1SiLauobpcreDXJs40F-avykkivEOTiBD&sz=w800" alt="Apartment Care"/>
         <div class="pcard-deco"></div><div class="pcard-inner"><div class="pcard-name">Apartment Care</div></div><div class="pcard-arrow">↗</div>
+      </div>
+      <div class="pcard" data-project="Tile" data-cat="Motion & Video">
+        <img class="pcard-thumb" src="https://drive.google.com/thumbnail?id=1iuZZeAZGJJHQXuxqSQb8jl2MXicevkGk&sz=w800" alt="Tile"/>
+        <div class="pcard-deco"></div><div class="pcard-inner"><div class="pcard-name">Tile</div></div><div class="pcard-arrow">↗</div>
       </div>
     </div>
   </div>
@@ -790,17 +760,9 @@
     <div class="cat-row reveal"><span class="cat-name">AI Products</span><div class="cat-line"></div></div>
     <div class="grid3 stagger">
       <div class="pcard" data-project="Lina" data-cat="AI Products"><div class="pcard-deco"></div><div class="pcard-inner"><div class="pcard-name">Lina</div></div><div class="pcard-arrow">↗</div></div>
-      <div class="pcard" data-project="Life On Content" data-cat="AI Products"><div class="pcard-deco"></div><div class="pcard-inner"><div class="pcard-name">Life On Content</div></div><div class="pcard-arrow">↗</div></div>
-      <div class="pcard" data-project="File Quản Lí" data-cat="AI Products"><div class="pcard-deco"></div><div class="pcard-inner"><div class="pcard-name">File Quản Lí</div></div><div class="pcard-arrow">↗</div></div>
     </div>
   </div>
 
-  <div class="cat-block">
-    <div class="cat-row reveal"><span class="cat-name">3D & Visual Experiment</span><div class="cat-line"></div></div>
-    <div class="grid3 stagger">
-      <div class="pcard" data-project="Sem4" data-cat="3D & Visual Experiment"><div class="pcard-deco"></div><div class="pcard-inner"><div class="pcard-name">Sem4</div></div><div class="pcard-arrow">↗</div></div>
-    </div>
-  </div>
 </section>
 
 <!-- FOOTER -->
@@ -943,17 +905,12 @@
     letter-spacing: 0.18em; color: rgba(245,240,232,0.18);
   }
 
-  /* upload input hidden, label acts as trigger */
-  .upload-input {
-    position: absolute; inset: 0; opacity: 0; cursor: pointer; z-index: 2;
-  }
-  .upload-hint {
-    position: absolute; bottom: 12px; right: 12px;
-    font-family: 'Space Mono', monospace; font-size: 9px;
-    letter-spacing: 0.12em; color: rgba(245,240,232,0.2);
-    pointer-events: none; transition: color 0.3s;
-  }
-  .detail-img-slot:hover .upload-hint { color: rgba(245,240,232,0.5); }
+  /* upload disabled */
+  .upload-input { display: none; }
+  .upload-hint { display: none; }
+  .exp-logo-upload { display: none; }
+  .exp-logo-hint { display: none; }
+  .tool-icon-upload { display: none; }
 
   .detail-footer-nav {
     padding: 48px 48px 80px;
@@ -1112,20 +1069,36 @@
       'https://drive.google.com/thumbnail?id=1bRHMN6sLTLEJNIklSJWe4mUe87W9_IBX&sz=w1600', // 21.png
       'https://drive.google.com/thumbnail?id=1vIEc4ZqCNkJlkE5gkLwWmMBWw_he75YF&sz=w1600', // 22.png
       'https://drive.google.com/thumbnail?id=1JCxWVDWGdS2jU-bEyX7MQD_LIOfNakMo&sz=w1600', // 23.png
+    ],
+    'Phúc Long': [
+      'https://drive.google.com/thumbnail?id=1kbkXdDDTKLHwHkq509Eo0jskStXYt66L&sz=w1600', // 1.png
+      'https://drive.google.com/thumbnail?id=1Fs4YVbS-AekSgpJRKKdgGR5XXiLu-reQ&sz=w1600', // 2.png
+      'https://drive.google.com/thumbnail?id=1ovniQFEBQNKH7-x8d4l2wVIakknLeUYn&sz=w1600', // 3.png
+      'https://drive.google.com/thumbnail?id=1KTYSJvbUdKXXkBqfkTRRZyGj8tRkG-_M&sz=w1600', // 4.png
+      'https://drive.google.com/thumbnail?id=16ae99_ywi4O9XxHq5khL24jTygOUss_W&sz=w1600', // 5.png
+      'https://drive.google.com/thumbnail?id=1XDM9_CyTA7SNuIDQcmTT54DPgnUmqGCz&sz=w1600', // 6.png
+      'https://drive.google.com/thumbnail?id=1lO7zXz16TaGgD8uRvrNlhSkYFFzVdHf-&sz=w1600', // 7.png
+      'https://drive.google.com/thumbnail?id=1N4wXmQRB1xj11E4FWsQaluLPbvqkVDGd&sz=w1600', // 8.png
+      'https://drive.google.com/thumbnail?id=12XlmzcB8uBN9wQYdA008Fqq_M_e-yZY-&sz=w1600', // 9.png
+      'https://drive.google.com/thumbnail?id=1Kq_r_7A6s4ebe1u6XkGnncL0qmuUDUU6&sz=w1600', // 10.png
+      'https://drive.google.com/thumbnail?id=1rkxawZELBnA2JP18Lrml2IvyhLsjoevz&sz=w1600', // 11.png
     ]
   };
 
   // Video-only projects (Google Drive embed)
   const projectVideos = {
-    'Tile': [
-      { id: '1SFXBZScuq53GC6rgsDAhgYJwobdTzjND', title: 'TILE-VIDEO' }
-    ],
-    'Apartment Care Motion': [
-      { id: '1Iei1yUgshu9ZnGWYRDkUI3wOOAYc4sLS', title: 'APARTMENT CARE' }
-    ],
-    'RbR Event': [
-      { id: '13J2_wD8UGK0Gutvv2zIhX6LRCdpurlPO', title: 'RbR EVENT' }
-    ]
+    'Tile': {
+      thumb: '1iuZZeAZGJJHQXuxqSQb8jl2MXicevkGk',
+      videos: [{ id: '1SFXBZScuq53GC6rgsDAhgYJwobdTzjND', title: 'TILE-VIDEO' }]
+    },
+    'Apartment Care Motion': {
+      thumb: '1SiLauobpcreDXJs40F-avykkivEOTiBD',
+      videos: [{ id: '1Iei1yUgshu9ZnGWYRDkUI3wOOAYc4sLS', title: 'APARTMENT CARE' }]
+    },
+    'RbR Event': {
+      thumb: '1EbXFTS_d4EaAcg1Y0ij10WLBMdlJkm_G',
+      videos: [{ id: '13J2_wD8UGK0Gutvv2zIhX6LRCdpurlPO', title: 'RbR EVENT' }]
+    }
   };
 
   // Store uploaded images per project
@@ -1149,9 +1122,10 @@
     detailImages.innerHTML = '';
 
     // VIDEO PROJECT
-    const videos = projectVideos[name];
-    if (videos && videos.length > 0) {
-      videos.forEach(v => {
+    const videoData = projectVideos[name];
+    if (videoData && videoData.videos.length > 0) {
+      // Video player only
+      videoData.videos.forEach(v => {
         const item = document.createElement('div');
         item.className = 'detail-img-item';
         item.innerHTML = `

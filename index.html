@@ -772,22 +772,16 @@
       </div>
       <div class="pcard" data-project="Channel" data-cat="Motion & Video"><div class="pcard-deco"></div><div class="pcard-inner"><div class="pcard-name">Channel</div></div><div class="pcard-arrow">↗</div></div>
       <div class="pcard" data-project="Tile" data-cat="Motion & Video">
-        <video class="pcard-video" autoplay muted loop playsinline>
-          <source src="https://drive.google.com/uc?export=download&id=1SFXBZScuq53GC6rgsDAhgYJwobdTzjND" type="video/mp4"/>
-        </video>
-        <div class="pcard-play"></div><div class="pcard-inner"><div class="pcard-name">Tile</div></div><div class="pcard-arrow">↗</div>
+        <img class="pcard-thumb" src="https://drive.google.com/thumbnail?id=1SFXBZScuq53GC6rgsDAhgYJwobdTzjND&sz=w800" alt="Tile"/>
+        <div class="pcard-deco"></div><div class="pcard-inner"><div class="pcard-name">Tile</div></div><div class="pcard-arrow">↗</div>
       </div>
       <div class="pcard" data-project="RbR Event" data-cat="Motion & Video">
-        <video class="pcard-video" autoplay muted loop playsinline>
-          <source src="https://drive.google.com/uc?export=download&id=13J2_wD8UGK0Gutvv2zIhX6LRCdpurlPO" type="video/mp4"/>
-        </video>
-        <div class="pcard-play"></div><div class="pcard-inner"><div class="pcard-name">RbR Event</div></div><div class="pcard-arrow">↗</div>
+        <img class="pcard-thumb" src="https://drive.google.com/thumbnail?id=13J2_wD8UGK0Gutvv2zIhX6LRCdpurlPO&sz=w800" alt="RbR Event"/>
+        <div class="pcard-deco"></div><div class="pcard-inner"><div class="pcard-name">RbR Event</div></div><div class="pcard-arrow">↗</div>
       </div>
       <div class="pcard" data-project="Apartment Care Motion" data-cat="Motion & Video">
-        <video class="pcard-video" autoplay muted loop playsinline>
-          <source src="https://drive.google.com/uc?export=download&id=1Iei1yUgshu9ZnGWYRDkUI3wOOAYc4sLS" type="video/mp4"/>
-        </video>
-        <div class="pcard-play"></div><div class="pcard-inner"><div class="pcard-name">Apartment Care</div></div><div class="pcard-arrow">↗</div>
+        <img class="pcard-thumb" src="https://drive.google.com/thumbnail?id=1Iei1yUgshu9ZnGWYRDkUI3wOOAYc4sLS&sz=w800" alt="Apartment Care"/>
+        <div class="pcard-deco"></div><div class="pcard-inner"><div class="pcard-name">Apartment Care</div></div><div class="pcard-arrow">↗</div>
       </div>
     </div>
   </div>
@@ -965,6 +959,14 @@
     padding: 48px 48px 80px;
     border-top: 1px solid var(--border);
   }
+  .detail-video-slot {
+    width: 100%;
+    background: #000;
+    position: relative;
+  }
+  .detail-video-slot iframe {
+    width: 100%; aspect-ratio: 16/9; border: none; display: block;
+  }
   .detail-back-bottom {
     background: none; border: 1px solid var(--border);
     color: rgba(245,240,232,0.5); font-family: 'Space Mono', monospace;
@@ -1116,58 +1118,60 @@
   // Video-only projects (Google Drive embed)
   const projectVideos = {
     'Tile': [
-      { id: '1SFXBZScuq53GC6rgsDAhgYJwobdTzjND', title: 'TILE-VIDEO.mp4' }
+      { id: '1SFXBZScuq53GC6rgsDAhgYJwobdTzjND', title: 'TILE-VIDEO' }
     ],
     'Apartment Care Motion': [
-      { id: '1Iei1yUgshu9ZnGWYRDkUI3wOOAYc4sLS', title: 'MAIN.mp4' }
+      { id: '1Iei1yUgshu9ZnGWYRDkUI3wOOAYc4sLS', title: 'APARTMENT CARE' }
     ],
     'RbR Event': [
-      { id: '13J2_wD8UGK0Gutvv2zIhX6LRCdpurlPO', title: 'event_volumn.mp4' }
+      { id: '13J2_wD8UGK0Gutvv2zIhX6LRCdpurlPO', title: 'RbR EVENT' }
     ]
   };
 
   // Store uploaded images per project
   const projectImages = {};
 
+  function showDetailPage() {
+    document.body.style.overflow = 'hidden';
+    detailPage.style.display = 'block';
+    detailPage.scrollTop = 0;
+    requestAnimationFrame(() => detailPage.classList.add('visible'));
+    setTimeout(() => {
+      detailImages.querySelectorAll('.detail-img-item').forEach(el => el.classList.add('visible'));
+    }, 120);
+  }
+
   function openProject(name, cat) {
     detailCat.textContent = cat;
     detailCatLbl.textContent = '— ' + cat;
     detailTitleNav.textContent = name;
     detailTitle.textContent = name;
-
     detailImages.innerHTML = '';
 
-    // Check if this is a video project
+    // VIDEO PROJECT
     const videos = projectVideos[name];
     if (videos && videos.length > 0) {
-      videos.forEach((v) => {
+      videos.forEach(v => {
         const item = document.createElement('div');
         item.className = 'detail-img-item';
         item.innerHTML = `
           <div class="detail-video-slot">
-            <video autoplay muted loop playsinline controls style="width:100%;height:auto;display:block;">
-              <source src="https://drive.google.com/uc?export=download&id=${v.id}" type="video/mp4"/>
-            </video>
-            <div class="video-label">${v.title}</div>
+            <iframe
+              src="https://drive.google.com/file/d/${v.id}/preview"
+              allow="autoplay"
+              allowfullscreen
+              style="width:100%;aspect-ratio:16/9;border:none;display:block;background:#000;">
+            </iframe>
           </div>`;
         detailImages.appendChild(item);
       });
-        detailImages.appendChild(item);
-      });
-
-      // Show detail page
-      document.body.style.overflow = 'hidden';
-      detailPage.style.display = 'block';
-      detailPage.scrollTop = 0;
-      requestAnimationFrame(() => detailPage.classList.add('visible'));
-      setTimeout(() => {
-        detailImages.querySelectorAll('.detail-img-item').forEach(el => el.classList.add('visible'));
-      }, 100);
+      showDetailPage();
       return;
     }
+
+    // IMAGE PROJECT
     const uploaded = projectImages[name] || [];
     const preloaded = projectPreloaded[name] || [];
-    // Show exactly as many images as preloaded (or 15 for empty projects)
     const total = preloaded.length > 0 ? preloaded.length : 15;
 
     for (let i = 0; i < total; i++) {
@@ -1198,7 +1202,6 @@
         slot.appendChild(ph);
       }
 
-      // Upload input
       const inp = document.createElement('input');
       inp.type = 'file'; inp.accept = 'image/*';
       inp.className = 'upload-input';
@@ -1234,22 +1237,7 @@
       detailImages.appendChild(item);
     }
 
-    // Show detail page
-    document.body.style.overflow = 'hidden';
-    detailPage.style.display = 'block';
-    detailPage.scrollTop = 0;
-    requestAnimationFrame(() => {
-      detailPage.classList.add('visible');
-    });
-
-    // Stagger reveal images
-    setTimeout(() => {
-      const items = detailImages.querySelectorAll('.detail-img-item');
-      const imgObs = new IntersectionObserver(entries => {
-        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-      }, { threshold: 0.05, root: detailPage });
-      items.forEach(el => imgObs.observe(el));
-    }, 100);
+    showDetailPage();
   }
 
   function closeProject() {

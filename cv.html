@@ -6,85 +6,108 @@
 <title>CV — Do Thi Cam Huong</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
   body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    background: #f4f1ec;
-    color: #111;
+    font-family: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #ffffff;
+    color: #0a0a0a;
     line-height: 1.4;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
   }
+  a { color: inherit; text-decoration: none; }
 
   /* ===== TOP BANNER ===== */
   .top-banner {
     width: 100%;
-    border-bottom: 1px solid #111;
-    padding: 14px 32px;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 18px 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 12px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    background: #f4f1ec;
+    background: #ffffff;
     position: sticky;
     top: 0;
     z-index: 100;
   }
-  .top-banner .logo { font-weight: 700; letter-spacing: 0.15em; }
-  .top-banner .pill {
-    background: #111;
-    color: #f4f1ec;
-    padding: 6px 14px;
-    border-radius: 20px;
-    font-size: 11px;
-  }
-  .top-banner nav { display: flex; gap: 28px; }
-  .top-banner nav a {
-    color: #111;
-    text-decoration: none;
-    font-size: 12px;
-  }
-  .top-banner nav a:hover { opacity: 0.6; }
-  .back-link {
-    display: inline-flex;
+  .top-banner .logo {
+    display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 10px;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: -0.01em;
   }
+  .top-banner .logo-dot {
+    width: 28px;
+    height: 28px;
+    background: #0a0a0a;
+    border-radius: 50%;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+  }
+  .top-banner nav { display: flex; gap: 36px; align-items: center; }
+  .top-banner nav a {
+    color: #0a0a0a;
+    font-size: 14px;
+    font-weight: 400;
+    transition: opacity 0.2s ease;
+  }
+  .top-banner nav a:hover { opacity: 0.5; }
+  .top-banner .pill {
+    background: transparent;
+    border: 1px solid #0a0a0a;
+    color: #0a0a0a;
+    padding: 10px 22px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+  }
+  .top-banner .pill:hover { background: #0a0a0a; color: #fff; }
 
   /* HERO HEADER */
   .cv-hero {
-    padding: 80px 32px 60px;
-    border-bottom: 1px solid #111;
+    padding: 80px 40px 60px;
+    border-bottom: 1px solid #e5e5e5;
   }
   .cv-hero .label {
-    font-size: 13px;
+    font-size: 11px;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    opacity: 0.7;
+    color: #737373;
     margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
   }
+  .cv-hero .label::before { content: "→"; }
   .cv-hero h1 {
-    font-family: 'Instrument Serif', serif;
-    font-size: clamp(56px, 9vw, 140px);
-    font-weight: 400;
-    line-height: 0.95;
-    letter-spacing: -0.03em;
-    margin-bottom: 32px;
+    font-size: clamp(48px, 8vw, 120px);
+    font-weight: 500;
+    line-height: 1.0;
+    letter-spacing: -0.035em;
+    margin-bottom: 40px;
   }
   .cv-hero h1 em {
     font-style: italic;
-    color: #c1440e;
+    color: #ff6534;
+    font-weight: 400;
   }
   .cv-hero .meta-row {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
     flex-wrap: wrap;
-    gap: 24px;
+    gap: 32px;
     margin-top: 32px;
   }
   .cv-hero .meta-row .info {
@@ -93,69 +116,81 @@
   }
   .cv-hero .meta-row .info strong {
     display: block;
-    font-size: 12px;
+    font-size: 11px;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    opacity: 0.6;
+    color: #737373;
     margin-bottom: 6px;
+    font-weight: 500;
   }
   .download-btn {
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    padding: 16px 28px;
+    padding: 14px 24px;
     border-radius: 999px;
-    background: #111;
-    color: #f4f1ec;
-    text-decoration: none;
+    background: #0a0a0a;
+    color: #fff;
     font-size: 14px;
     font-weight: 500;
     transition: all 0.2s ease;
+    border: 1px solid #0a0a0a;
+    cursor: pointer;
+    font-family: inherit;
   }
-  .download-btn:hover { background: #c1440e; }
+  .download-btn:hover { background: #ff6534; border-color: #ff6534; }
 
   /* CV SECTIONS */
   .cv-grid {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 80px 32px;
+    padding: 80px 40px;
   }
   .cv-block {
     display: grid;
     grid-template-columns: 220px 1fr;
     gap: 40px;
     padding: 60px 0;
-    border-top: 1px solid #11111130;
+    border-top: 1px solid #e5e5e5;
   }
   .cv-block:first-child { border-top: none; padding-top: 0; }
   .cv-block .head {
-    font-size: 13px;
+    font-size: 11px;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    opacity: 0.7;
+    color: #737373;
     display: flex;
     align-items: flex-start;
     gap: 8px;
+    font-weight: 500;
   }
   .cv-block .head::before { content: "→"; }
   .cv-block h2 {
-    font-family: 'Instrument Serif', serif;
     font-size: clamp(36px, 5vw, 64px);
-    font-weight: 400;
-    line-height: 1;
-    letter-spacing: -0.02em;
+    font-weight: 500;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
     margin-bottom: 40px;
   }
-  .cv-block h2 em { font-style: italic; color: #c1440e; }
+  .cv-block h2 em {
+    font-style: italic;
+    color: #ff6534;
+    font-weight: 400;
+  }
 
   /* About text */
   .about-text {
     font-size: 22px;
     line-height: 1.5;
     max-width: 800px;
-    color: #222;
+    color: #404040;
+    font-weight: 400;
   }
   .about-text p + p { margin-top: 24px; }
+  .about-text em {
+    font-style: italic;
+    color: #ff6534;
+  }
 
   /* Experience / Education item */
   .item {
@@ -163,35 +198,44 @@
     grid-template-columns: 180px 1fr auto;
     gap: 24px;
     padding: 28px 0;
-    border-bottom: 1px solid #11111120;
+    border-bottom: 1px solid #e5e5e5;
     align-items: baseline;
+    transition: padding 0.2s ease, background 0.2s ease;
+    border-radius: 8px;
+  }
+  .item:hover {
+    background: #fafafa;
+    padding-left: 16px;
+    padding-right: 16px;
   }
   .item:last-child { border-bottom: none; }
   .item .period {
     font-size: 12px;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-    opacity: 0.6;
+    color: #737373;
+    font-weight: 500;
   }
   .item .title {
-    font-family: 'Instrument Serif', serif;
-    font-size: 28px;
-    line-height: 1.1;
-    letter-spacing: -0.01em;
+    font-size: 24px;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    font-weight: 600;
   }
   .item .role {
     font-size: 14px;
-    opacity: 0.7;
+    color: #737373;
     margin-top: 6px;
   }
   .item .tag {
     font-size: 11px;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
     padding: 6px 12px;
-    border: 1px solid #111;
+    border: 1px solid #0a0a0a;
     border-radius: 999px;
     white-space: nowrap;
+    font-weight: 500;
   }
 
   /* Skills grid */
@@ -199,18 +243,19 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 0;
-    border-top: 1px solid #111;
-    border-left: 1px solid #111;
+    border-top: 1px solid #e5e5e5;
+    border-left: 1px solid #e5e5e5;
   }
   .skills-grid .skill {
     padding: 24px 20px;
-    border-right: 1px solid #111;
-    border-bottom: 1px solid #111;
-    font-family: 'Instrument Serif', serif;
-    font-size: 24px;
-    transition: background 0.2s ease;
+    border-right: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    transition: background 0.2s ease, color 0.2s ease;
   }
-  .skills-grid .skill:hover { background: #111; color: #f4f1ec; }
+  .skills-grid .skill:hover { background: #0a0a0a; color: #fff; }
 
   /* Languages */
   .lang-row {
@@ -219,104 +264,118 @@
     flex-wrap: wrap;
   }
   .lang-row .lang {
-    font-family: 'Instrument Serif', serif;
-    font-size: 32px;
+    font-size: 28px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
   }
   .lang-row .lang small {
     display: block;
-    font-family: 'Inter', sans-serif;
-    font-size: 12px;
+    font-size: 11px;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    opacity: 0.6;
+    color: #737373;
     margin-top: 4px;
+    font-weight: 500;
   }
 
   /* CTA bottom */
   .cv-cta {
-    background: #111;
-    color: #f4f1ec;
+    background: #0a0a0a;
+    color: #fff;
     text-align: center;
-    padding: 120px 32px;
+    padding: 120px 40px;
   }
   .cv-cta h2 {
-    font-family: 'Instrument Serif', serif;
     font-size: clamp(48px, 8vw, 120px);
-    line-height: 0.95;
-    letter-spacing: -0.03em;
+    line-height: 1.0;
+    letter-spacing: -0.035em;
     margin-bottom: 40px;
+    font-weight: 500;
   }
-  .cv-cta h2 em { font-style: italic; color: #c1440e; }
+  .cv-cta h2 em {
+    font-style: italic;
+    color: #ff6534;
+    font-weight: 400;
+  }
   .cv-cta .email-big {
-    font-family: 'Instrument Serif', serif;
+    display: inline-block;
     font-size: clamp(20px, 3vw, 32px);
-    color: #f4f1ec;
+    color: #fff;
     text-decoration: underline;
     text-underline-offset: 6px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
   }
-  .cv-cta .email-big:hover { color: #c1440e; }
+  .cv-cta .email-big:hover { color: #ff6534; }
   .back-home {
     display: inline-flex;
     align-items: center;
     gap: 10px;
     margin-top: 40px;
-    padding: 16px 28px;
+    padding: 14px 24px;
     border-radius: 999px;
-    border: 1px solid #f4f1ec;
-    color: #f4f1ec;
-    text-decoration: none;
+    border: 1px solid #fff;
+    color: #fff;
     font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s ease;
   }
-  .back-home:hover { background: #f4f1ec; color: #111; }
+  .back-home:hover { background: #fff; color: #0a0a0a; }
 
   /* footer */
   footer {
-    border-top: 1px solid #111;
-    padding: 32px;
+    border-top: 1px solid #e5e5e5;
+    padding: 24px 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-size: 12px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #737373;
     flex-wrap: wrap;
     gap: 16px;
+    background: #fff;
   }
-  footer .heart { color: #c1440e; }
+  footer .heart { color: #ff6534; }
 
   /* Responsive */
   @media (max-width: 768px) {
-    .top-banner { padding: 12px 20px; flex-wrap: wrap; gap: 8px; }
+    .top-banner { padding: 14px 20px; flex-wrap: wrap; gap: 8px; }
     .top-banner nav { display: none; }
     .cv-hero, .cv-grid { padding-left: 20px; padding-right: 20px; }
     .cv-block { grid-template-columns: 1fr; gap: 20px; }
     .item { grid-template-columns: 1fr; gap: 6px; }
     .item .tag { justify-self: flex-start; margin-top: 4px; }
+    .item:hover { padding-left: 0; padding-right: 0; }
   }
 
   @media print {
     .top-banner, .cv-cta, footer { display: none; }
     body { background: #fff; }
+    .item:hover { background: transparent; padding-left: 0; padding-right: 0; }
   }
 </style>
 </head>
 <body>
 
 <!-- TOP BANNER -->
-<div class="top-banner">
-  <div class="logo">[ DTCH ] CV 2026</div>
+<header class="top-banner">
+  <a href="index.html" class="logo">
+    <span class="logo-dot">D</span>
+    DTCH
+  </a>
   <nav>
-    <a href="index.html" class="back-link">← Home</a>
+    <a href="index.html">← Home</a>
     <a href="#experience">Experience</a>
     <a href="#education">Education</a>
     <a href="#skills">Skills</a>
   </nav>
-  <div class="pill">Curriculum Vitae</div>
-</div>
+  <a href="mailto:huongdo0547@gmail.com" class="pill">Let's talk</a>
+</header>
 
 <!-- HERO -->
 <section class="cv-hero">
-  <div class="label">— Curriculum Vitae · 2026</div>
+  <div class="label">Curriculum Vitae · 2026</div>
   <h1>Do Thi <em>Cam Huong</em></h1>
 
   <div class="meta-row">
@@ -338,20 +397,21 @@
         huongdo0547@gmail.com
       </div>
     </div>
-    <a href="javascript:window.print()" class="download-btn">Download PDF →</a>
+    <button onclick="window.print()" class="download-btn">Download PDF →</button>
   </div>
 </section>
 
-<!-- ABOUT -->
+<!-- CV CONTENT -->
 <div class="cv-grid">
 
+  <!-- ABOUT -->
   <div class="cv-block">
     <div class="head">about</div>
     <div>
       <h2>A short <em>introduction</em>.</h2>
       <div class="about-text">
         <p>Multimedia Designer &amp; Content Creator based in Ho Chi Minh City. I have 3+ years of experience working with agencies and brands across brand identity, UI/UX, motion graphics, and content creation.</p>
-        <p>I believe great design lives at the intersection of <em style="font-style: italic; color: #c1440e;">aesthetics</em> and <em style="font-style: italic; color: #c1440e;">storytelling</em> — every project is a chance to turn ideas into visual emotion.</p>
+        <p>I believe great design lives at the intersection of <em>aesthetics</em> and <em>storytelling</em> — every project is a chance to turn ideas into visual emotion.</p>
       </div>
     </div>
   </div>
@@ -467,24 +527,6 @@
         <div class="skill">AI Product</div>
         <div class="skill">Visual Identity</div>
         <div class="skill">Social Media Design</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- TOOLS -->
-  <div class="cv-block">
-    <div class="head">tools</div>
-    <div>
-      <h2>Daily <em>stack</em>.</h2>
-      <div class="skills-grid">
-        <div class="skill">Figma</div>
-        <div class="skill">Photoshop</div>
-        <div class="skill">Illustrator</div>
-        <div class="skill">Premiere Pro</div>
-        <div class="skill">After Effects</div>
-        <div class="skill">InDesign</div>
-        <div class="skill">Capcut</div>
-        <div class="skill">AI Tools</div>
       </div>
     </div>
   </div>

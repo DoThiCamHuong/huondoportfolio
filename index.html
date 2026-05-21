@@ -6,345 +6,97 @@
 <title>Do Thi Cam Huong — Portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Instrument+Serif:ital@0;1&family=Caveat:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800;900&family=Caveat:wght@400;500&display=swap" rel="stylesheet">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
   body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    background: #f4f1ec;
-    color: #111;
+    font-family: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #ffffff;
+    color: #0a0a0a;
     line-height: 1.4;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
   a { color: inherit; text-decoration: none; }
 
-  /* ===== TOP NAVBAR ===== */
+  /* ===== NAVBAR ===== */
   .navbar {
     width: 100%;
-    border-bottom: 1px solid #11111120;
+    border-bottom: 1px solid #e5e5e5;
     padding: 18px 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #f4f1ec;
+    background: #ffffff;
     position: sticky;
     top: 0;
     z-index: 100;
   }
-  .navbar .logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-weight: 700;
-    font-size: 15px;
-    letter-spacing: 0.05em;
-  }
-  .navbar .logo-dot {
-    width: 28px;
-    height: 28px;
-    background: #111;
-    border-radius: 50%;
-    color: #f4f1ec;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 13px;
-    font-weight: 700;
-    font-family: 'Instrument Serif', serif;
-    font-style: italic;
-  }
-  .navbar nav {
-    display: flex;
-    gap: 36px;
-    align-items: center;
-  }
-  .navbar nav a {
-    font-size: 14px;
-    color: #111;
-    transition: opacity 0.2s ease;
-  }
+  .navbar .logo { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 15px; letter-spacing: -0.01em; }
+  .navbar .logo-dot { width: 28px; height: 28px; background: #0a0a0a; border-radius: 50%; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; }
+  .navbar nav { display: flex; gap: 36px; align-items: center; }
+  .navbar nav a { font-size: 14px; color: #0a0a0a; transition: opacity 0.2s ease; font-weight: 400; }
   .navbar nav a:hover { opacity: 0.5; }
-  .navbar nav .hiring-tag {
-    background: #fde2d4;
-    color: #c1440e;
-    padding: 2px 8px;
-    border-radius: 4px;
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    margin-left: -28px;
-  }
-  .navbar .talk-btn {
-    background: transparent;
-    border: 1px solid #111;
-    padding: 10px 22px;
-    border-radius: 999px;
-    font-size: 14px;
-    transition: all 0.2s ease;
-  }
-  .navbar .talk-btn:hover { background: #111; color: #f4f1ec; }
+  .navbar nav .tag { background: #fde2d4; color: #ff6534; padding: 2px 8px; border-radius: 4px; font-size: 10px; font-weight: 600; letter-spacing: 0.1em; margin-left: -28px; }
+  .navbar .talk-btn { background: transparent; border: 1px solid #0a0a0a; padding: 10px 22px; border-radius: 999px; font-size: 14px; transition: all 0.2s ease; font-weight: 500; }
+  .navbar .talk-btn:hover { background: #0a0a0a; color: #fff; }
 
-  /* ===== SPLIT HERO LAYOUT ===== */
-  .split-container {
-    display: grid;
-    grid-template-columns: 38% 62%;
-    min-height: calc(100vh - 70px);
-  }
+  /* ===== SPLIT LAYOUT ===== */
+  .split-container { display: grid; grid-template-columns: 38% 62%; min-height: calc(100vh - 70px); }
 
   /* LEFT FIXED PANEL */
   .left-panel {
     position: sticky;
     top: 70px;
     height: calc(100vh - 70px);
-    padding: 60px 60px 40px;
+    padding: 50px 60px 30px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    border-right: 1px solid #11111120;
+    border-right: 1px solid #e5e5e5;
+    overflow-y: auto;
   }
-  .booking-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    margin-bottom: 32px;
-  }
-  .booking-pill::before {
-    content: "";
-    width: 8px;
-    height: 8px;
-    background: #2ea043;
-    border-radius: 50%;
-    display: inline-block;
-  }
-  .left-panel h1 {
-    font-family: 'Inter', sans-serif;
-    font-size: clamp(32px, 3.4vw, 52px);
-    font-weight: 600;
-    line-height: 1.1;
-    letter-spacing: -0.03em;
-    margin-bottom: 28px;
-    color: #111;
-  }
-  .left-panel h1 em {
-    font-family: 'Instrument Serif', serif;
-    font-style: italic;
-    font-weight: 400;
-    color: #c1440e;
-  }
-  .left-panel .intro {
-    font-size: 16px;
-    line-height: 1.55;
-    color: #444;
-    margin-bottom: 36px;
-    max-width: 420px;
-  }
-  .cta-row {
-    display: flex;
-    gap: 12px;
-    margin-bottom: 48px;
-    flex-wrap: wrap;
-  }
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 14px 24px;
-    border-radius: 999px;
-    font-size: 14px;
-    font-weight: 500;
-    transition: all 0.2s ease;
-    cursor: pointer;
-    border: 1px solid #111;
-  }
-  .btn-primary { background: #111; color: #f4f1ec; }
-  .btn-primary:hover { background: #c1440e; border-color: #c1440e; }
-  .btn-secondary { background: transparent; color: #111; }
-  .btn-secondary:hover { background: #111; color: #f4f1ec; }
+  .booking-pill { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 28px; color: #0a0a0a; }
+  .booking-pill::before { content: ""; width: 8px; height: 8px; background: #2ea043; border-radius: 50%; display: inline-block; }
+  .left-panel h1 { font-size: clamp(32px, 3vw, 48px); font-weight: 500; line-height: 1.05; letter-spacing: -0.035em; margin-bottom: 24px; color: #0a0a0a; }
+  .left-panel .intro { font-size: 15px; line-height: 1.55; color: #525252; margin-bottom: 28px; max-width: 420px; font-weight: 400; }
+  .left-panel .intro strong { color: #0a0a0a; font-weight: 600; }
+  .cta-row { display: flex; gap: 10px; margin-bottom: 36px; flex-wrap: wrap; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 22px; border-radius: 999px; font-size: 14px; font-weight: 500; transition: all 0.2s ease; cursor: pointer; border: 1px solid #0a0a0a; font-family: inherit; }
+  .btn-primary { background: #0a0a0a; color: #fff; }
+  .btn-primary:hover { background: #ff6534; border-color: #ff6534; }
+  .btn-secondary { background: transparent; color: #0a0a0a; }
+  .btn-secondary:hover { background: #0a0a0a; color: #fff; }
 
-  .best-at-label {
-    font-size: 12px;
-    color: #777;
-    margin-bottom: 14px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-  .best-at-label::before { content: "→"; }
-  .best-at-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px 28px;
-    margin-bottom: 40px;
-    max-width: 420px;
-  }
-  .best-at-grid .item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 14px;
-    color: #111;
-    cursor: pointer;
-    padding: 6px 10px;
-    margin: -6px -10px;
-    border-radius: 8px;
-    transition: all 0.2s ease;
-    user-select: none;
-  }
-  .best-at-grid .item:hover {
-    background: #11111108;
-  }
-  .best-at-grid .item.active {
-    background: #111;
-    color: #f4f1ec;
-  }
-  .best-at-grid .item.active .icon {
-    color: #e8703a;
-  }
-  .best-at-grid .item .icon {
-    width: 16px;
-    height: 16px;
-    color: #c1440e;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    transition: color 0.2s ease;
-  }
-  .best-at-grid .item .count {
-    margin-left: auto;
-    font-size: 11px;
-    opacity: 0.5;
-    font-variant-numeric: tabular-nums;
-  }
-  .filter-all {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 12px;
-    color: #777;
-    margin-bottom: 14px;
-    cursor: pointer;
-    padding: 4px 10px;
-    margin-left: -10px;
-    border-radius: 6px;
-    transition: all 0.2s ease;
-    text-decoration: underline;
-    text-underline-offset: 3px;
-  }
-  .filter-all:hover { color: #c1440e; }
-  .filter-all.hidden { opacity: 0; pointer-events: none; }
-  .filter-active-banner {
-    display: none;
-    background: #111;
-    color: #f4f1ec;
-    padding: 14px 20px;
-    border-radius: 12px;
-    margin-bottom: 12px;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 13px;
-    letter-spacing: 0.05em;
-  }
-  .filter-active-banner.show { display: flex; }
-  .filter-active-banner .clear-btn {
-    background: transparent;
-    border: 1px solid #f4f1ec50;
-    color: #f4f1ec;
-    padding: 6px 14px;
-    border-radius: 999px;
-    font-size: 12px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-  }
-  .filter-active-banner .clear-btn:hover {
-    background: #f4f1ec;
-    color: #111;
-  }
-  .filter-active-banner strong {
-    color: #e8703a;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    font-size: 12px;
-  }
-  .project-card {
-    transition: opacity 0.4s ease, transform 0.4s ease, max-height 0.4s ease;
-  }
-  .project-card.hidden {
-    display: none;
-  }
-  .empty-state {
-    display: none;
-    padding: 80px 40px;
-    text-align: center;
-    background: #fff;
-    border-radius: 16px;
-    color: #777;
-  }
-  .empty-state.show { display: block; }
-  .empty-state h3 {
-    font-family: 'Instrument Serif', serif;
-    font-size: 32px;
-    color: #111;
-    margin-bottom: 12px;
-  }
-  .empty-state p { font-size: 14px; }
+  .panel-label { font-size: 11px; color: #737373; margin-bottom: 12px; display: flex; align-items: center; gap: 6px; letter-spacing: 0.05em; }
+  .panel-label::before { content: "→"; }
 
-  .hq-note {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    margin-top: auto;
-  }
-  .hq-note .text {
-    font-family: 'Caveat', cursive;
-    font-size: 18px;
-    color: #111;
-  }
-  .hq-note .location-badge {
-    background: linear-gradient(135deg, #c1440e 0%, #e8703a 100%);
-    color: #fff;
-    padding: 6px 12px;
-    transform: rotate(-3deg);
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    box-shadow: 0 4px 12px rgba(193, 68, 14, 0.3);
-  }
+  .filter-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px 24px; margin-bottom: 28px; max-width: 420px; }
+  .filter-grid .item { display: flex; align-items: center; gap: 10px; font-size: 14px; color: #0a0a0a; cursor: pointer; padding: 8px 10px; margin: 0 -10px; border-radius: 8px; transition: all 0.2s ease; user-select: none; font-weight: 400; }
+  .filter-grid .item:hover { background: #f5f5f5; }
+  .filter-grid .item.active { background: #0a0a0a; color: #fff; }
+  .filter-grid .item.active .icon { color: #ff6534; }
+  .filter-grid .item .icon { width: 16px; color: #ff6534; transition: color 0.2s ease; }
+  .filter-grid .item .count { margin-left: auto; font-size: 11px; opacity: 0.5; font-variant-numeric: tabular-nums; }
 
-  /* ===== RIGHT SCROLLABLE PROJECT FEED ===== */
-  .right-panel {
-    padding: 40px;
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-  }
-  .project-card {
-    background: #fff;
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-  }
-  .project-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 32px rgba(0,0,0,0.08);
-  }
-  .project-visual {
-    aspect-ratio: 16 / 11;
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    padding: 40px;
-  }
-  .project-tag-row {
-    padding: 22px 28px;
+  .filter-all { display: none; font-size: 12px; color: #737373; margin-bottom: 24px; cursor: pointer; padding: 4px 10px; margin-left: -10px; border-radius: 6px; text-decoration: underline; text-underline-offset: 3px; transition: color 0.2s ease; width: fit-content; }
+  .filter-all.show { display: inline-flex; }
+  .filter-all:hover { color: #ff6534; }
+
+  .hq-note { display: flex; align-items: center; gap: 14px; margin-top: auto; padding-top: 24px; }
+  .hq-note .text { font-family: 'Caveat', cursive; font-size: 17px; color: #0a0a0a; }
+  .hq-note .location-badge { background: linear-gradient(135deg, #ff6534 0%, #ff8a5b 100%); color: #fff; padding: 6px 12px; transform: rotate(-3deg); font-size: 11px; font-weight: 700; letter-spacing: 0.1em; box-shadow: 0 4px 12px rgba(255, 101, 52, 0.3); }
+
+  /* ===== RIGHT PANEL ===== */
+  .right-panel { padding: 40px; display: flex; flex-direction: column; gap: 14px; background: #fafafa; }
+
+  /* Project group */
+  .project-group { display: flex; flex-direction: column; gap: 14px; transition: opacity 0.4s ease; }
+  .project-group.hidden { display: none; }
+
+  /* Project header tag row */
+  .project-header {
+    padding: 28px 28px 18px;
     display: flex;
     flex-wrap: wrap;
     gap: 6px 14px;
@@ -352,266 +104,112 @@
     font-size: 12px;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: #444;
+    color: #525252;
+    background: transparent;
+    margin-top: 32px;
+    border-top: 1px solid #e5e5e5;
   }
-  .project-tag-row .dot { color: #c1440e; }
-  .project-tag-row .accent {
-    color: #c1440e;
-    font-weight: 600;
-  }
-  .project-tag-row .name {
-    font-weight: 700;
-    color: #111;
-  }
+  .project-group:first-child .project-header { margin-top: 0; border-top: none; padding-top: 4px; }
+  .project-header .dot { color: #ff6534; }
+  .project-header .accent { color: #ff6534; font-weight: 600; }
+  .project-header .name { font-weight: 700; color: #0a0a0a; font-size: 13px; }
 
-  /* Variant backgrounds for projects */
-  .bg-cream { background: #f5ede0; color: #111; }
-  .bg-dark { background: #1c1c1c; color: #f4f1ec; }
-  .bg-orange { background: linear-gradient(135deg, #c1440e 0%, #e8703a 100%); }
-  .bg-sage { background: #c8d2bd; color: #1c1c1c; }
-  .bg-blue { background: linear-gradient(135deg, #1a3a5c 0%, #2c5f8d 100%); }
-  .bg-pink { background: #f5dadd; color: #111; }
-  .bg-mustard { background: #d9a441; color: #111; }
-
-  /* Mock UI elements for project visuals */
-  .mock-card {
-    background: rgba(255,255,255,0.95);
-    color: #111;
-    border-radius: 12px;
-    padding: 28px;
-    width: 90%;
-    max-width: 480px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-    text-align: left;
-  }
-  .mock-card .mock-row {
+  /* Detail section (image-like) */
+  .detail-section {
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid #e5e5e5;
+    aspect-ratio: 16 / 11;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 8px 0;
-    font-size: 13px;
-    border-bottom: 1px solid #eee;
+    justify-content: center;
+    padding: 40px;
+    position: relative;
   }
+  .detail-section.tall { aspect-ratio: 16 / 12; }
+
+  /* Variant backgrounds */
+  .bg-cream { background: #f5ede0; color: #0a0a0a; }
+  .bg-dark { background: #1c1c1c; color: #fafafa; }
+  .bg-orange { background: linear-gradient(135deg, #ff6534 0%, #ff8a5b 100%); color: #fff; }
+  .bg-sage { background: #c8d2bd; color: #1c1c1c; }
+  .bg-blue { background: linear-gradient(135deg, #1a3a5c 0%, #2c5f8d 100%); color: #fff; }
+  .bg-pink { background: #f5dadd; color: #0a0a0a; }
+  .bg-mustard { background: #d9a441; color: #0a0a0a; }
+  .bg-stone { background: #e8e4dd; color: #0a0a0a; }
+  .bg-deep { background: #0a0a0a; color: #fff; }
+  .bg-mint { background: #dceee2; color: #0a0a0a; }
+  .bg-lavender { background: #d8d0e8; color: #0a0a0a; }
+
+  /* Big word/heading inside detail */
+  .big-word { font-size: clamp(56px, 8vw, 110px); line-height: 0.95; letter-spacing: -0.04em; text-align: center; font-weight: 600; }
+  .big-word em { font-style: italic; font-weight: 400; }
+  .med-word { font-size: clamp(40px, 5vw, 64px); line-height: 1.0; letter-spacing: -0.03em; font-weight: 500; }
+  .med-word em { font-style: italic; font-weight: 400; color: #ff6534; }
+
+  /* Mock UI dashboard */
+  .mock-card { background: rgba(255,255,255,0.95); color: #0a0a0a; border-radius: 12px; padding: 28px; width: 92%; max-width: 520px; box-shadow: 0 8px 24px rgba(0,0,0,0.12); text-align: left; }
+  .mock-card .mock-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; font-size: 13px; border-bottom: 1px solid #eee; }
   .mock-card .mock-row:last-child { border: none; }
-  .mock-card h3 {
-    font-size: 24px;
-    margin-bottom: 6px;
-    font-weight: 600;
-  }
-  .mock-card .label {
-    font-size: 12px;
-    color: #777;
-    margin-bottom: 18px;
-  }
-  .mock-card .stat {
-    font-family: 'Instrument Serif', serif;
-    font-size: 36px;
-    color: #c1440e;
-    margin: 10px 0 16px;
-  }
+  .mock-card h3 { font-size: 22px; margin-bottom: 6px; font-weight: 600; letter-spacing: -0.02em; }
+  .mock-card .label { font-size: 11px; color: #737373; margin-bottom: 14px; text-transform: uppercase; letter-spacing: 0.1em; }
+  .mock-card .stat { font-size: 36px; font-weight: 600; color: #ff6534; margin: 6px 0 14px; letter-spacing: -0.03em; }
 
-  /* Big serif center for some projects */
-  .project-bigword {
-    font-family: 'Instrument Serif', serif;
-    font-size: clamp(60px, 8vw, 120px);
-    line-height: 1;
-    letter-spacing: -0.03em;
-    text-align: center;
-  }
-  .project-bigword em { font-style: italic; }
+  /* Color palette */
+  .palette { display: flex; gap: 12px; width: 92%; max-width: 520px; }
+  .palette .swatch { flex: 1; aspect-ratio: 1; border-radius: 12px; display: flex; align-items: flex-end; padding: 12px; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; }
 
-  /* Wireframe style */
-  .wireframe {
-    width: 90%;
-    max-width: 460px;
-    background: rgba(255,255,255,0.1);
-    border: 1px solid rgba(255,255,255,0.3);
-    border-radius: 8px;
-    padding: 24px;
-  }
-  .wireframe .wf-bar {
-    height: 8px;
-    background: rgba(255,255,255,0.35);
-    border-radius: 4px;
-    margin: 6px 0;
-  }
+  /* Wireframe */
+  .wireframe { width: 92%; max-width: 480px; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.3); border-radius: 8px; padding: 24px; }
+  .wireframe .wf-bar { height: 8px; background: rgba(255,255,255,0.35); border-radius: 4px; margin: 6px 0; }
   .wireframe .wf-bar.short { width: 40%; }
   .wireframe .wf-bar.med { width: 70%; }
   .wireframe .wf-bar.accent { background: #fff; }
-  .wireframe .wf-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 8px;
-    margin-top: 16px;
-  }
-  .wireframe .wf-block {
-    aspect-ratio: 1;
-    background: rgba(255,255,255,0.2);
-    border-radius: 4px;
-  }
+  .wireframe .wf-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-top: 16px; }
+  .wireframe .wf-block { aspect-ratio: 1; background: rgba(255,255,255,0.2); border-radius: 4px; }
 
-  /* ===== SECTION BREAK ===== */
-  .section-break {
-    border-top: 1px solid #11111120;
-    padding: 100px 60px;
-    text-align: center;
-  }
-  .section-break .label {
-    font-size: 12px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    opacity: 0.6;
-    margin-bottom: 24px;
-  }
-  .section-break h2 {
-    font-family: 'Instrument Serif', serif;
-    font-size: clamp(48px, 8vw, 120px);
-    line-height: 1;
-    letter-spacing: -0.02em;
-  }
-  .section-break h2 em { font-style: italic; color: #c1440e; }
+  /* Mobile mockups (2 phones side by side) */
+  .phones-row { display: flex; gap: 24px; align-items: center; justify-content: center; }
+  .phone { width: 160px; aspect-ratio: 9 / 19; background: #fff; border-radius: 24px; padding: 14px 10px; box-shadow: 0 12px 32px rgba(0,0,0,0.15); display: flex; flex-direction: column; gap: 8px; }
+  .phone .ph-notch { background: #0a0a0a; height: 4px; width: 40px; border-radius: 2px; margin: 0 auto 6px; }
+  .phone .ph-bar { background: #eee; height: 6px; border-radius: 3px; }
+  .phone .ph-bar.short { width: 50%; }
+  .phone .ph-bar.acc { background: #ff6534; }
+  .phone .ph-img { background: #f5ede0; aspect-ratio: 1; border-radius: 8px; margin: 4px 0; }
+  .phone .ph-row { display: flex; gap: 6px; }
+  .phone .ph-row > div { flex: 1; aspect-ratio: 1; background: #eee; border-radius: 6px; }
 
-  /* ===== TOOLS ===== */
-  .tools-section {
-    background: #111;
-    color: #f4f1ec;
-    padding: 100px 60px;
-  }
-  .tools-section .head-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-bottom: 60px;
-    max-width: 1400px;
-    margin-left: auto;
-    margin-right: auto;
-    flex-wrap: wrap;
-    gap: 24px;
-  }
-  .tools-section .label {
-    font-size: 12px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    opacity: 0.5;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-  .tools-section .label::before { content: "→"; }
-  .tools-section h2 {
-    font-family: 'Instrument Serif', serif;
-    font-size: clamp(40px, 6vw, 88px);
-    line-height: 1;
-    letter-spacing: -0.02em;
-    max-width: 700px;
-  }
-  .tools-section h2 em { font-style: italic; color: #e8703a; }
-  .tools-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 0;
-    max-width: 1400px;
-    margin: 0 auto;
-    border-top: 1px solid #f4f1ec30;
-    border-left: 1px solid #f4f1ec30;
-  }
-  .tool-item {
-    padding: 28px 24px;
-    border-right: 1px solid #f4f1ec30;
-    border-bottom: 1px solid #f4f1ec30;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: background 0.2s ease;
-  }
-  .tool-item:hover { background: #c1440e; }
-  .tool-name {
-    font-family: 'Instrument Serif', serif;
-    font-size: 28px;
-  }
-  .tool-num {
-    font-size: 11px;
-    opacity: 0.5;
-    letter-spacing: 0.15em;
-  }
+  /* Social posts grid */
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; width: 92%; max-width: 520px; }
+  .grid-3 .tile { aspect-ratio: 1; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 13px; padding: 14px; text-align: center; letter-spacing: -0.01em; }
 
-  /* ===== CONTACT ===== */
-  .contact-section {
-    padding: 140px 60px;
-    text-align: center;
-  }
-  .contact-section .label {
-    font-size: 12px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    opacity: 0.6;
-    margin-bottom: 24px;
-  }
-  .contact-section h2 {
-    font-family: 'Instrument Serif', serif;
-    font-size: clamp(48px, 8vw, 140px);
-    line-height: 0.95;
-    letter-spacing: -0.03em;
-    margin-bottom: 40px;
-  }
-  .contact-section h2 em { font-style: italic; color: #c1440e; }
-  .contact-section .email-link {
-    display: inline-block;
-    font-family: 'Instrument Serif', serif;
-    font-size: clamp(24px, 3vw, 40px);
-    color: #111;
-    text-decoration: underline;
-    text-underline-offset: 6px;
-    margin-bottom: 40px;
-  }
-  .contact-section .email-link:hover { color: #c1440e; }
-  .social-row {
-    display: flex;
-    justify-content: center;
-    gap: 24px;
-    flex-wrap: wrap;
-  }
-  .social-row a {
-    font-size: 13px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    border-bottom: 1px solid #111;
-    padding-bottom: 2px;
-  }
-  .social-row a:hover { color: #c1440e; border-color: #c1440e; }
+  /* Typography spec */
+  .typo-spec { width: 92%; max-width: 540px; }
+  .typo-spec .typo-h { font-size: 80px; line-height: 0.9; letter-spacing: -0.04em; font-weight: 600; margin-bottom: 8px; }
+  .typo-spec .typo-meta { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; opacity: 0.6; margin-bottom: 28px; }
+  .typo-spec .typo-body { font-size: 16px; line-height: 1.5; max-width: 400px; opacity: 0.8; }
 
-  /* ===== FOOTER ===== */
-  footer {
-    border-top: 1px solid #111;
-    padding: 28px 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 12px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    flex-wrap: wrap;
-    gap: 16px;
-  }
-  footer .heart { color: #c1440e; }
+  /* Empty state */
+  .empty-state { display: none; padding: 80px 40px; text-align: center; background: #fff; border-radius: 16px; color: #737373; border: 1px solid #e5e5e5; }
+  .empty-state.show { display: block; }
+  .empty-state h3 { font-size: 28px; color: #0a0a0a; margin-bottom: 12px; font-weight: 600; letter-spacing: -0.02em; }
+  .empty-state p { font-size: 14px; }
 
-  /* ===== RESPONSIVE ===== */
+  /* Footer */
+  footer { border-top: 1px solid #e5e5e5; padding: 24px 40px; display: flex; justify-content: space-between; align-items: center; font-size: 12px; letter-spacing: 0.05em; color: #737373; flex-wrap: wrap; gap: 16px; background: #fff; }
+  footer .heart { color: #ff6534; }
+
+  /* Responsive */
   @media (max-width: 960px) {
     .navbar { padding: 14px 20px; }
     .navbar nav { display: none; }
-    .split-container {
-      grid-template-columns: 1fr;
-    }
-    .left-panel {
-      position: static;
-      height: auto;
-      padding: 40px 24px;
-      border-right: none;
-      border-bottom: 1px solid #11111120;
-    }
+    .split-container { grid-template-columns: 1fr; }
+    .left-panel { position: static; height: auto; padding: 40px 24px; border-right: none; border-bottom: 1px solid #e5e5e5; }
     .right-panel { padding: 24px; }
-    .section-break, .tools-section, .contact-section { padding-left: 24px; padding-right: 24px; }
-    .best-at-grid { grid-template-columns: 1fr; }
+    .filter-grid { grid-template-columns: 1fr; }
+    .typo-spec .typo-h { font-size: 56px; }
+    .phones-row { flex-direction: row; }
   }
 </style>
 </head>
@@ -619,14 +217,11 @@
 
 <!-- NAVBAR -->
 <header class="navbar">
-  <a href="#" class="logo">
-    <span class="logo-dot">D</span>
-    DTCH
-  </a>
+  <a href="#" class="logo"><span class="logo-dot">D</span> DTCH</a>
   <nav>
     <a href="#about">About</a>
     <a href="#projects">Projects</a>
-    <a href="cv.html">CV <span class="hiring-tag">PDF</span></a>
+    <a href="cv.html">CV <span class="tag">PDF</span></a>
   </nav>
   <a href="mailto:huongdo0547@gmail.com" class="talk-btn">Let's talk</a>
 </header>
@@ -639,12 +234,10 @@
     <div>
       <div class="booking-pill">Booking for Q3'26</div>
 
-      <h1>
-        Multimedia design <em>&amp; content</em> for ambitious brands
-      </h1>
+      <h1>Multimedia design &amp; content for ambitious brands</h1>
 
       <p class="intro">
-        I'm <strong>Do Thi Cam Huong</strong> — a Multimedia Designer &amp; Content Creator based in Ho Chi Minh City. 3+ years crafting brand identity, UI/UX, motion graphics, and content for agencies &amp; brands.
+        I'm <strong>Do Thi Cam Huong</strong> — a Multimedia Designer &amp; Content Creator based in Ho Chi Minh City. 3+ years crafting brand identity, UI/UX, motion graphics and content for agencies and brands.
       </p>
 
       <div class="cta-row">
@@ -652,8 +245,8 @@
         <a href="mailto:huongdo0547@gmail.com" class="btn btn-secondary">Get in touch</a>
       </div>
 
-      <div class="best-at-label">what i'm best at <span style="opacity: 0.5; margin-left: 6px;">(click to filter →)</span></div>
-      <div class="best-at-grid" id="filterGrid">
+      <div class="panel-label">what i'm best at <span style="opacity: 0.5; margin-left: 6px;">(click to filter)</span></div>
+      <div class="filter-grid" id="filterGrid">
         <div class="item" data-filter="branding"><span class="icon">◆</span> Branding <span class="count">4</span></div>
         <div class="item" data-filter="uiux"><span class="icon">◇</span> UI / UX Design <span class="count">2</span></div>
         <div class="item" data-filter="motion"><span class="icon">▶</span> Motion Graphic <span class="count">2</span></div>
@@ -661,7 +254,7 @@
         <div class="item" data-filter="content"><span class="icon">✺</span> Content Creator <span class="count">5</span></div>
         <div class="item" data-filter="ai"><span class="icon">✧</span> AI Product <span class="count">2</span></div>
       </div>
-      <a class="filter-all hidden" id="filterAll">← Show all projects</a>
+      <a class="filter-all" id="filterAll">← Show all projects</a>
     </div>
 
     <div class="hq-note">
@@ -673,146 +266,263 @@
   <!-- RIGHT SCROLL PANEL -->
   <main class="right-panel" id="projects">
 
-    <!-- Active filter banner -->
-    <div class="filter-active-banner" id="filterBanner">
-      <span>Filtering by <strong id="filterLabel"></strong> · <span id="filterCount">0</span> project(s)</span>
-      <button class="clear-btn" id="clearFilter">Clear filter ✕</button>
-    </div>
+    <!-- ============ PROJECT 1: LIFE ON ============ -->
+    <section class="project-group" data-categories="branding,content,motion,video">
+      <div class="project-header">
+        <span class="name">LIFE ON INTERIOR DESIGN</span>
+        <span class="dot">·</span><span>MULTIMEDIA</span>
+        <span class="dot">·</span><span>CONTENT</span>
+        <span class="dot">·</span><span class="accent">2025 — PRESENT</span>
+      </div>
 
-    <!-- Project 1 -->
-    <article class="project-card" data-categories="branding,content,motion,video">
-      <div class="project-visual bg-cream">
+      <div class="detail-section bg-cream">
+        <div class="big-word">Life <em>On</em></div>
+      </div>
+
+      <div class="detail-section bg-stone">
         <div class="mock-card">
           <div class="label">Interior Design Studio</div>
-          <h3>Life On</h3>
+          <h3>Project overview</h3>
           <div class="stat">35+ projects</div>
           <div class="mock-row"><span>Residential</span><span>↑ 24</span></div>
           <div class="mock-row"><span>Commercial</span><span>↑ 11</span></div>
           <div class="mock-row"><span>Social Media</span><span>↑ Active</span></div>
         </div>
       </div>
-      <div class="project-tag-row">
-        <span class="name">LIFE ON INTERIOR DESIGN</span>
-        <span class="dot">·</span><span>MULTIMEDIA</span>
-        <span class="dot">·</span><span>CONTENT</span>
-        <span class="dot">·</span><span class="accent">2025 — PRESENT</span>
-      </div>
-    </article>
 
-    <!-- Project 2 -->
-    <article class="project-card" data-categories="branding,content,ai">
-      <div class="project-visual bg-dark">
-        <div class="project-bigword">
-          DENCOS<br/><em style="color:#e8703a">luxury</em>
+      <div class="detail-section bg-dark">
+        <div class="palette">
+          <div class="swatch" style="background:#f5ede0; color:#0a0a0a;">CREAM</div>
+          <div class="swatch" style="background:#c8a878; color:#0a0a0a;">TAUPE</div>
+          <div class="swatch" style="background:#5a3a2a; color:#fff;">CACAO</div>
+          <div class="swatch" style="background:#1c1c1c; color:#fff;">JET</div>
         </div>
       </div>
-      <div class="project-tag-row">
+
+      <div class="detail-section bg-cream">
+        <div class="grid-3">
+          <div class="tile" style="background:#1c1c1c; color:#fff;">LIVING<br/>SPACES</div>
+          <div class="tile" style="background:#c8a878; color:#0a0a0a;">WARM<br/>LIGHTS</div>
+          <div class="tile" style="background:#5a3a2a; color:#fff;">COZY<br/>MOOD</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROJECT 2: DENCOS LUXURY ============ -->
+    <section class="project-group" data-categories="branding,content,ai">
+      <div class="project-header">
         <span class="name">DENCOS LUXURY</span>
         <span class="dot">·</span><span>BRAND</span>
         <span class="dot">·</span><span>CONTENT CREATOR</span>
         <span class="dot">·</span><span class="accent">2024 — PRESENT</span>
       </div>
-    </article>
 
-    <!-- Project 3 -->
-    <article class="project-card" data-categories="uiux">
-      <div class="project-visual bg-orange">
-        <div class="wireframe">
-          <div class="wf-bar accent" style="width: 30%"></div>
-          <div class="wf-bar short"></div>
-          <div class="wf-bar med"></div>
-          <div class="wf-bar"></div>
-          <div class="wf-grid">
-            <div class="wf-block"></div>
-            <div class="wf-block"></div>
-            <div class="wf-block"></div>
-          </div>
-          <div class="wf-bar med" style="margin-top: 16px"></div>
-          <div class="wf-bar short"></div>
+      <div class="detail-section bg-dark">
+        <div class="big-word">DENCOS<br/><em style="color:#ff8a5b">luxury</em></div>
+      </div>
+
+      <div class="detail-section bg-stone">
+        <div class="typo-spec">
+          <div class="typo-h">Aa Bb</div>
+          <div class="typo-meta">Geist Display · 500 · -3.5% tracking</div>
+          <div class="typo-body">A clean, modern typeface system built around precision and confidence — chosen to anchor the Dencos Luxury identity.</div>
         </div>
       </div>
-      <div class="project-tag-row">
+
+      <div class="detail-section bg-deep">
+        <div class="grid-3">
+          <div class="tile" style="background:#d4af6c; color:#0a0a0a;">GOLD</div>
+          <div class="tile" style="background:#fff; color:#0a0a0a;">IVORY</div>
+          <div class="tile" style="background:#1c1c1c; color:#d4af6c; border: 1px solid #d4af6c;">NOIR</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROJECT 3: ALTA MEDIA ============ -->
+    <section class="project-group" data-categories="uiux">
+      <div class="project-header">
         <span class="name">ALTA MEDIA</span>
         <span class="dot">·</span><span>UI / UX DESIGN</span>
         <span class="dot">·</span><span>INTERN</span>
         <span class="dot">·</span><span class="accent">DEC 2024 — FEB 2025</span>
       </div>
-    </article>
 
-    <!-- Project 4 -->
-    <article class="project-card" data-categories="uiux,ai">
-      <div class="project-visual bg-sage">
-        <div class="mock-card" style="background: #fff;">
-          <div class="label">International Trade Council</div>
-          <h3 style="font-family: 'Instrument Serif', serif; font-size: 40px; line-height: 1;">Global trade <em style="color: #c1440e">simplified.</em></h3>
-          <div style="margin-top: 20px; display: flex; gap: 8px;">
-            <div style="background: #c1440e; color: #fff; padding: 8px 14px; border-radius: 999px; font-size: 11px;">Explore →</div>
-            <div style="border: 1px solid #111; padding: 8px 14px; border-radius: 999px; font-size: 11px;">Members</div>
+      <div class="detail-section bg-orange">
+        <div class="wireframe">
+          <div class="wf-bar accent" style="width: 30%"></div>
+          <div class="wf-bar short"></div>
+          <div class="wf-bar med"></div>
+          <div class="wf-bar"></div>
+          <div class="wf-grid"><div class="wf-block"></div><div class="wf-block"></div><div class="wf-block"></div></div>
+          <div class="wf-bar med" style="margin-top: 16px"></div>
+          <div class="wf-bar short"></div>
+        </div>
+      </div>
+
+      <div class="detail-section bg-stone">
+        <div class="phones-row">
+          <div class="phone">
+            <div class="ph-notch"></div>
+            <div class="ph-bar acc"></div>
+            <div class="ph-bar short"></div>
+            <div class="ph-img"></div>
+            <div class="ph-bar"></div>
+            <div class="ph-bar short"></div>
+            <div class="ph-row"><div></div><div></div></div>
+          </div>
+          <div class="phone">
+            <div class="ph-notch"></div>
+            <div class="ph-bar"></div>
+            <div class="ph-row"><div></div><div></div><div></div></div>
+            <div class="ph-bar short"></div>
+            <div class="ph-img" style="background:#ff6534;"></div>
+            <div class="ph-bar acc"></div>
           </div>
         </div>
       </div>
-      <div class="project-tag-row">
+
+      <div class="detail-section bg-deep">
+        <div class="mock-card" style="background:#fff;">
+          <div class="label">Component Library</div>
+          <h3>Design tokens</h3>
+          <div class="mock-row"><span>Primary</span><span style="background:#ff6534; width:32px; height:12px; border-radius:4px;"></span></div>
+          <div class="mock-row"><span>Neutral 900</span><span style="background:#0a0a0a; width:32px; height:12px; border-radius:4px;"></span></div>
+          <div class="mock-row"><span>Surface</span><span style="background:#fafafa; width:32px; height:12px; border-radius:4px; border:1px solid #e5e5e5;"></span></div>
+          <div class="mock-row"><span>Radius / md</span><span>12 px</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROJECT 4: INTERNATIONAL TRADE COUNCIL ============ -->
+    <section class="project-group" data-categories="uiux,ai">
+      <div class="project-header">
         <span class="name">INTERNATIONAL TRADE COUNCIL</span>
         <span class="dot">·</span><span>UI / UX</span>
         <span class="dot">·</span><span class="accent">MAY — NOV 2024</span>
       </div>
-    </article>
 
-    <!-- Project 5 -->
-    <article class="project-card" data-categories="content,video">
-      <div class="project-visual bg-blue">
-        <div class="project-bigword" style="color: #fff">
-          <em>Success</em><br/>Sphere<br/><span style="font-size: 0.4em; font-family: 'Inter', sans-serif; font-style: normal; letter-spacing: 0.2em; opacity: 0.7;">CONTENT · STRATEGY</span>
+      <div class="detail-section bg-sage">
+        <div class="mock-card" style="background: #fff;">
+          <div class="label">International Trade Council</div>
+          <h3 style="font-size: 32px; line-height: 1.05;">Global trade <em style="font-style: italic; color: #ff6534;">simplified.</em></h3>
+          <div style="margin-top: 18px; display: flex; gap: 8px;">
+            <div style="background: #ff6534; color: #fff; padding: 8px 14px; border-radius: 999px; font-size: 11px;">Explore →</div>
+            <div style="border: 1px solid #0a0a0a; padding: 8px 14px; border-radius: 999px; font-size: 11px;">Members</div>
+          </div>
         </div>
       </div>
-      <div class="project-tag-row">
+
+      <div class="detail-section bg-mint">
+        <div class="grid-3">
+          <div class="tile" style="background:#fff;"><div><div style="font-size:32px; font-weight:600; color:#ff6534;">180+</div><div style="font-size:10px; color:#737373; letter-spacing:0.1em; text-transform:uppercase;">Countries</div></div></div>
+          <div class="tile" style="background:#fff;"><div><div style="font-size:32px; font-weight:600; color:#ff6534;">12K</div><div style="font-size:10px; color:#737373; letter-spacing:0.1em; text-transform:uppercase;">Members</div></div></div>
+          <div class="tile" style="background:#fff;"><div><div style="font-size:32px; font-weight:600; color:#ff6534;">95%</div><div style="font-size:10px; color:#737373; letter-spacing:0.1em; text-transform:uppercase;">Satisfaction</div></div></div>
+        </div>
+      </div>
+
+      <div class="detail-section bg-blue">
+        <div class="med-word">Connecting<br/>global <em>commerce.</em></div>
+      </div>
+    </section>
+
+    <!-- ============ PROJECT 5: SUCCESS SPHERE ============ -->
+    <section class="project-group" data-categories="content,video">
+      <div class="project-header">
         <span class="name">SUCCESS SPHERE</span>
         <span class="dot">·</span><span>CONTENT CREATOR</span>
         <span class="dot">·</span><span>FREELANCE</span>
         <span class="dot">·</span><span class="accent">AUG 2024 — MAR 2025</span>
       </div>
-    </article>
 
-    <!-- Project 6 -->
-    <article class="project-card" data-categories="branding,content,video,motion">
-      <div class="project-visual bg-pink">
-        <div class="mock-card">
-          <div class="label">PMAX · Performance Marketing</div>
-          <h3>Creative production</h3>
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 18px;">
-            <div style="background: #f5ede0; padding: 14px; border-radius: 8px;">
-              <div style="font-family: 'Instrument Serif', serif; font-size: 28px; color: #c1440e;">120+</div>
-              <div style="font-size: 11px; color: #777; text-transform: uppercase; letter-spacing: 0.1em;">Banners</div>
-            </div>
-            <div style="background: #f5ede0; padding: 14px; border-radius: 8px;">
-              <div style="font-family: 'Instrument Serif', serif; font-size: 28px; color: #c1440e;">40+</div>
-              <div style="font-size: 11px; color: #777; text-transform: uppercase; letter-spacing: 0.1em;">Videos</div>
-            </div>
-          </div>
+      <div class="detail-section bg-blue">
+        <div class="big-word" style="color:#fff;"><em>Success</em><br/>Sphere</div>
+      </div>
+
+      <div class="detail-section bg-stone">
+        <div class="grid-3">
+          <div class="tile" style="background:#1a3a5c; color:#fff;">REELS<br/>SERIES</div>
+          <div class="tile" style="background:#fff; color:#0a0a0a; border:1px solid #e5e5e5;">CAROUSEL<br/>POSTS</div>
+          <div class="tile" style="background:#ff6534; color:#fff;">STORY<br/>CONTENT</div>
         </div>
       </div>
-      <div class="project-tag-row">
+
+      <div class="detail-section bg-deep">
+        <div class="typo-spec" style="color:#fff;">
+          <div class="typo-h" style="color:#ff6534; font-style: italic; font-weight: 400;">"Strategy<br/>before story."</div>
+          <div class="typo-meta">— Content philosophy</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROJECT 6: PMAX ============ -->
+    <section class="project-group" data-categories="branding,content,video,motion">
+      <div class="project-header">
         <span class="name">PMAX COMPANY</span>
         <span class="dot">·</span><span>GRAPHIC DESIGN</span>
         <span class="dot">·</span><span>FREELANCE</span>
         <span class="dot">·</span><span class="accent">AUG 2024 — PRESENT</span>
       </div>
-    </article>
 
-    <!-- Project 7 -->
-    <article class="project-card" data-categories="branding,content,video">
-      <div class="project-visual bg-mustard">
-        <div class="project-bigword">
-          pixie<em>.</em>
+      <div class="detail-section bg-pink">
+        <div class="mock-card">
+          <div class="label">PMAX · Performance Marketing</div>
+          <h3>Creative production</h3>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 18px;">
+            <div style="background: #f5ede0; padding: 14px; border-radius: 8px;">
+              <div style="font-size: 28px; font-weight: 600; color: #ff6534; letter-spacing: -0.02em;">120+</div>
+              <div style="font-size: 11px; color: #737373; text-transform: uppercase; letter-spacing: 0.1em;">Banners</div>
+            </div>
+            <div style="background: #f5ede0; padding: 14px; border-radius: 8px;">
+              <div style="font-size: 28px; font-weight: 600; color: #ff6534; letter-spacing: -0.02em;">40+</div>
+              <div style="font-size: 11px; color: #737373; text-transform: uppercase; letter-spacing: 0.1em;">Videos</div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="project-tag-row">
+
+      <div class="detail-section bg-lavender">
+        <div class="grid-3" style="grid-template-columns: repeat(4, 1fr);">
+          <div class="tile" style="background:#fff; aspect-ratio: 9/16; border:1px solid #e5e5e5;">AD<br/>v1</div>
+          <div class="tile" style="background:#ff6534; color:#fff; aspect-ratio: 9/16;">AD<br/>v2</div>
+          <div class="tile" style="background:#0a0a0a; color:#fff; aspect-ratio: 9/16;">AD<br/>v3</div>
+          <div class="tile" style="background:#d8d0e8; color:#0a0a0a; aspect-ratio: 9/16; border:1px solid #b8a8d0;">AD<br/>v4</div>
+        </div>
+      </div>
+
+      <div class="detail-section bg-orange">
+        <div class="med-word" style="color:#fff;">Built to <em style="color:#0a0a0a">convert.</em></div>
+      </div>
+    </section>
+
+    <!-- ============ PROJECT 7: PIXIE ============ -->
+    <section class="project-group" data-categories="branding,content,video">
+      <div class="project-header">
         <span class="name">PIXIE COMPANY</span>
         <span class="dot">·</span><span>CONTENT</span>
         <span class="dot">·</span><span>GRAPHIC DESIGN</span>
         <span class="dot">·</span><span class="accent">2023 — 2024</span>
       </div>
-    </article>
+
+      <div class="detail-section bg-mustard">
+        <div class="big-word">pixie<em>.</em></div>
+      </div>
+
+      <div class="detail-section bg-cream">
+        <div class="palette">
+          <div class="swatch" style="background:#d9a441; color:#0a0a0a;">MUSTARD</div>
+          <div class="swatch" style="background:#f5ede0; color:#0a0a0a; border:1px solid #e5e5e5;">SAND</div>
+          <div class="swatch" style="background:#5a3a2a; color:#fff;">EARTH</div>
+        </div>
+      </div>
+
+      <div class="detail-section bg-stone">
+        <div class="grid-3">
+          <div class="tile" style="background:#d9a441; color:#0a0a0a;">POST 01</div>
+          <div class="tile" style="background:#fff; color:#0a0a0a; border:1px solid #e5e5e5;">POST 02</div>
+          <div class="tile" style="background:#5a3a2a; color:#fff;">POST 03</div>
+        </div>
+      </div>
+    </section>
 
     <!-- Empty state -->
     <div class="empty-state" id="emptyState">
@@ -826,25 +536,20 @@
 <!-- FOOTER -->
 <footer>
   <div>Designing with <span class="heart">♥</span> from Ho Chi Minh City</div>
-  <div><a href="mailto:huongdo0547@gmail.com">huongdo0547@gmail.com</a></div>
   <div>© 2026 Do Thi Cam Huong</div>
 </footer>
 
 <script>
   const filterItems = document.querySelectorAll('#filterGrid .item');
-  const projectCards = document.querySelectorAll('.project-card');
+  const projectGroups = document.querySelectorAll('.project-group');
   const filterAllBtn = document.getElementById('filterAll');
-  const filterBanner = document.getElementById('filterBanner');
-  const filterLabel = document.getElementById('filterLabel');
-  const filterCount = document.getElementById('filterCount');
-  const clearBtn = document.getElementById('clearFilter');
   const emptyState = document.getElementById('emptyState');
   const projectsAnchor = document.getElementById('projects');
 
-  // Update counts dynamically based on data-categories
+  // Auto-count categories
   const allCategories = {};
-  projectCards.forEach(card => {
-    const cats = (card.dataset.categories || '').split(',').map(s => s.trim());
+  projectGroups.forEach(g => {
+    const cats = (g.dataset.categories || '').split(',').map(s => s.trim());
     cats.forEach(c => { if (c) allCategories[c] = (allCategories[c] || 0) + 1; });
   });
   filterItems.forEach(item => {
@@ -855,27 +560,21 @@
 
   function applyFilter(category) {
     let visibleCount = 0;
-    projectCards.forEach(card => {
-      const cats = (card.dataset.categories || '').split(',').map(s => s.trim());
+    projectGroups.forEach(g => {
+      const cats = (g.dataset.categories || '').split(',').map(s => s.trim());
       if (!category || cats.includes(category)) {
-        card.classList.remove('hidden');
+        g.classList.remove('hidden');
         visibleCount++;
       } else {
-        card.classList.add('hidden');
+        g.classList.add('hidden');
       }
     });
 
     if (category) {
-      const activeItem = document.querySelector(`.item[data-filter="${category}"]`);
-      const labelText = activeItem ? activeItem.textContent.replace(/\d+/g, '').trim() : category;
-      filterLabel.textContent = labelText;
-      filterCount.textContent = visibleCount;
-      filterBanner.classList.add('show');
-      filterAllBtn.classList.remove('hidden');
+      filterAllBtn.classList.add('show');
       emptyState.classList.toggle('show', visibleCount === 0);
     } else {
-      filterBanner.classList.remove('show');
-      filterAllBtn.classList.add('hidden');
+      filterAllBtn.classList.remove('show');
       emptyState.classList.remove('show');
     }
   }
@@ -883,18 +582,18 @@
   filterItems.forEach(item => {
     item.addEventListener('click', () => {
       const filter = item.dataset.filter;
-      const isAlreadyActive = item.classList.contains('active');
+      const isActive = item.classList.contains('active');
 
-      // Toggle off if clicking the same one
       filterItems.forEach(i => i.classList.remove('active'));
-      if (isAlreadyActive) {
+      if (isActive) {
         applyFilter(null);
       } else {
         item.classList.add('active');
         applyFilter(filter);
-        // Scroll right panel into view on small screens
         if (window.innerWidth <= 960) {
           projectsAnchor.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else {
+          projectsAnchor.scrollTop = 0;
         }
       }
     });
@@ -904,9 +603,7 @@
     filterItems.forEach(i => i.classList.remove('active'));
     applyFilter(null);
   }
-
   filterAllBtn.addEventListener('click', clearAll);
-  clearBtn.addEventListener('click', clearAll);
 </script>
 
 </body>

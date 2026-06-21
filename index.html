@@ -259,33 +259,19 @@
   .branding-gallery .gallery-item { width: 100%; display: flex; justify-content: center; position: relative; min-height: 120px; background: #f5f5f5; }
   .branding-gallery .gallery-item img { width: 100%; height: auto; display: block; object-fit: contain; position: relative; z-index: 1; }
   .branding-gallery .gallery-item::before {
-    content: attr(data-placeholder);
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 13px;
-    color: #aaa;
-    font-style: italic;
-    letter-spacing: 0.02em;
-    z-index: 0;
-    padding: 24px;
-    text-align: center;
-  }
-  .branding-gallery .gallery-item.loaded::before { display: none; }
-  .branding-gallery .gallery-item.load-error::before { content: none; }
-  .branding-gallery .gallery-item.load-error::after {
     content: "";
     position: absolute;
     width: 28px;
     height: 28px;
+    margin: auto;
+    inset: 0;
     border: 3px solid #e5e5e5;
     border-top-color: #ff6534;
     border-radius: 50%;
     animation: gallery-spin 0.8s linear infinite;
     z-index: 0;
   }
+  .branding-gallery .gallery-item.loaded::before { display: none; }
   @keyframes gallery-spin { to { transform: rotate(360deg); } }
 
   /* Footer */
@@ -310,7 +296,7 @@
 
 <!-- NAVBAR -->
 <header class="navbar">
-  <a href="#" class="logo" style="font-family: 'Avo', 'Geist', sans-serif; font-weight: 700; font-size: 16px; letter-spacing: -0.01em; color: #0a0a0a; text-decoration: none;">Huong Do</a>
+  <a href="#" class="logo" style="font-family: 'Avo', 'Geist', sans-serif; font-weight: 700; font-size: 16px; letter-spacing: -0.01em; color: #0a0a0a; text-decoration: none;">HUONG DO</a>
   <nav>
     <a href="#about">About</a>
     <a href="#projects">Projects</a>
@@ -403,20 +389,20 @@
     </section>
 
     <!-- ============ PROJECT 0: SUCCESS SPHERE ============ -->
-    <section class="project-group" id="proj-success" data-categories="content,video" data-name="Success Sphere">
+    <section class="project-group" id="proj-success" data-categories="content" data-name="Success Sphere">
       <div class="branding-gallery" style="display:flex;">
-        <div class="gallery-item"><img src="https://drive.google.com/thumbnail?id=1MEIqZGPxTnPB-992fUznoIPm6JXpWC40&sz=w4000" alt="1" loading="lazy" /></div>
-        <div class="gallery-item"><img src="https://drive.google.com/thumbnail?id=1bnFIqv_T43iTu6yq04DG_MnpHMaoYKqE&sz=w4000" alt="2" loading="lazy" /></div>
-        <div class="gallery-item"><img src="https://drive.google.com/thumbnail?id=1mAzHRr14Z_N-zVobVkcrUj4JY6T-5juV&sz=w4000" alt="3" loading="lazy" /></div>
-        <div class="gallery-item"><img src="https://drive.google.com/thumbnail?id=1RwRhqDz03Zro7e1iN6pTShuaN9Wekdwd&sz=w4000" alt="4" loading="lazy" /></div>
-        <div class="gallery-item"><img src="https://drive.google.com/thumbnail?id=1hSLtSkEkqT1IjjUUXTSIulqXSdid5mfX&sz=w4000" alt="5" loading="lazy" /></div>
-        <div class="gallery-item"><img src="https://drive.google.com/thumbnail?id=1Wlx9kFIcCFwN3yXcW64qk43c6EUYKGaU&sz=w4000" alt="6" loading="lazy" /></div>
-        <div class="gallery-item"><img src="https://drive.google.com/thumbnail?id=1l2560IaTbMRwoIjQVUqmMWADx9t21Hr4&sz=w4000" alt="7" loading="lazy" /></div>
+        <div class="gallery-item"><img src="https://drive.google.com/thumbnail?id=1MEIqZGPxTnPB-992fUznoIPm6JXpWC40&sz=w4000&t=20260621" alt="1" loading="lazy" /></div>
+        <div class="gallery-item"><img src="https://drive.google.com/thumbnail?id=1bnFIqv_T43iTu6yq04DG_MnpHMaoYKqE&sz=w4000&t=20260621" alt="2" loading="lazy" /></div>
+        <div class="gallery-item"><img src="https://drive.google.com/thumbnail?id=1mAzHRr14Z_N-zVobVkcrUj4JY6T-5juV&sz=w4000&t=20260621" alt="3" loading="lazy" /></div>
+        <div class="gallery-item"><img src="https://drive.google.com/thumbnail?id=1RwRhqDz03Zro7e1iN6pTShuaN9Wekdwd&sz=w4000&t=20260621" alt="4" loading="lazy" /></div>
+        <div class="gallery-item"><img src="https://drive.google.com/thumbnail?id=1hSLtSkEkqT1IjjUUXTSIulqXSdid5mfX&sz=w4000&t=20260621" alt="5" loading="lazy" /></div>
+        <div class="gallery-item"><img src="https://drive.google.com/thumbnail?id=1Wlx9kFIcCFwN3yXcW64qk43c6EUYKGaU&sz=w4000&t=20260621" alt="6" loading="lazy" /></div>
+        <div class="gallery-item"><img src="https://drive.google.com/thumbnail?id=1l2560IaTbMRwoIjQVUqmMWADx9t21Hr4&sz=w4000&t=20260621" alt="7" loading="lazy" /></div>
       </div>
     </section>
 
     <!-- ============ PROJECT 1: LIFE ON ============ -->
-    <section class="project-group" id="proj-life-on" data-categories="content,motion,video" data-name="Life On">
+    <section class="project-group" id="proj-life-on" data-categories="content" data-name="Life On">
 
       <div class="detail-section bg-cream">
         <div class="big-word">Life <em>On</em></div>
@@ -480,91 +466,52 @@
       </div>
     </section>
 
-    <!-- ============ PROJECT 3: ALTA MEDIA ============ -->
-    <section class="project-group" id="proj-alta" data-categories="uiux" data-name="Alta Media">
-      <div class="detail-section bg-orange">
-        <div class="wireframe">
-          <div class="wf-bar accent" style="width: 30%"></div>
-          <div class="wf-bar short"></div>
-          <div class="wf-bar med"></div>
-          <div class="wf-bar"></div>
-          <div class="wf-grid"><div class="wf-block"></div><div class="wf-block"></div><div class="wf-block"></div></div>
-          <div class="wf-bar med" style="margin-top: 16px"></div>
-          <div class="wf-bar short"></div>
-        </div>
-      </div>
-
-      <div class="detail-section bg-stone">
-        <div class="phones-row">
-          <div class="phone">
-            <div class="ph-notch"></div>
-            <div class="ph-bar acc"></div>
-            <div class="ph-bar short"></div>
-            <div class="ph-img"></div>
-            <div class="ph-bar"></div>
-            <div class="ph-bar short"></div>
-            <div class="ph-row"><div></div><div></div></div>
-          </div>
-          <div class="phone">
-            <div class="ph-notch"></div>
-            <div class="ph-bar"></div>
-            <div class="ph-row"><div></div><div></div><div></div></div>
-            <div class="ph-bar short"></div>
-            <div class="ph-img" style="background:#ff6534;"></div>
-            <div class="ph-bar acc"></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="detail-section bg-deep">
-        <div class="mock-card" style="background:#fff;">
-          <div class="label">Component Library</div>
-          <h3>Design tokens</h3>
-          <div class="mock-row"><span>Primary</span><span style="background:#ff6534; width:32px; height:12px; border-radius:4px;"></span></div>
-          <div class="mock-row"><span>Neutral 900</span><span style="background:#0a0a0a; width:32px; height:12px; border-radius:4px;"></span></div>
-          <div class="mock-row"><span>Surface</span><span style="background:#fafafa; width:32px; height:12px; border-radius:4px; border:1px solid #e5e5e5;"></span></div>
-          <div class="mock-row"><span>Radius / md</span><span>12 px</span></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ PROJECT 4: INTERNATIONAL TRADE COUNCIL ============ -->
-    <section class="project-group" id="proj-itc" data-categories="uiux,ai" data-name="Intl. Trade Council">
-      <div class="detail-section bg-sage">
-        <div class="mock-card" style="background: #fff;">
-          <div class="label">International Trade Council</div>
-          <h3 style="font-size: 32px; line-height: 1.05;">Global trade <em style="font-style: italic; color: #ff6534;">simplified.</em></h3>
-          <div style="margin-top: 18px; display: flex; gap: 8px;">
-            <div style="background: #ff6534; color: #fff; padding: 8px 14px; border-radius: 999px; font-size: 11px;">Explore →</div>
-            <div style="border: 1px solid #0a0a0a; padding: 8px 14px; border-radius: 999px; font-size: 11px;">Members</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="detail-section bg-mint">
-        <div class="grid-3">
-          <div class="tile" style="background:#fff;"><div><div style="font-size:32px; font-weight:600; color:#ff6534;">180+</div><div style="font-size:10px; color:#737373; letter-spacing:0.1em; text-transform:uppercase;">Countries</div></div></div>
-          <div class="tile" style="background:#fff;"><div><div style="font-size:32px; font-weight:600; color:#ff6534;">12K</div><div style="font-size:10px; color:#737373; letter-spacing:0.1em; text-transform:uppercase;">Members</div></div></div>
-          <div class="tile" style="background:#fff;"><div><div style="font-size:32px; font-weight:600; color:#ff6534;">95%</div><div style="font-size:10px; color:#737373; letter-spacing:0.1em; text-transform:uppercase;">Satisfaction</div></div></div>
-        </div>
-      </div>
-
-      <div class="detail-section bg-blue">
-        <div class="med-word">Connecting<br/>global <em>commerce.</em></div>
-      </div>
-    </section>
-
-    <!-- ============ UIUX PROJECT 3 (placeholder) ============ -->
-    <section class="project-group" id="proj-uiux03" data-categories="uiux" data-name="Project 3">
+    <!-- ============ UIUX PROJECT: APARTMENT CARE (placeholder) ============ -->
+    <section class="project-group" id="proj-apartment-care" data-categories="uiux,motion" data-name="Apartment Care">
       <div class="detail-section bg-lavender">
         <div class="big-word" style="opacity:0.3;">Soon<em>.</em></div>
       </div>
     </section>
 
-    <!-- ============ UIUX PROJECT 4 (placeholder) ============ -->
-    <section class="project-group" id="proj-uiux04" data-categories="uiux" data-name="Project 4">
+    <!-- ============ UIUX PROJECT: PHUC LONG APP (placeholder) ============ -->
+    <section class="project-group" id="proj-phuc-long" data-categories="uiux" data-name="Phuc Long App">
       <div class="detail-section bg-mint">
         <div class="big-word" style="opacity:0.3;">Soon<em>.</em></div>
+      </div>
+    </section>
+
+    <!-- ============ UIUX PROJECT: RBR WEB (placeholder) ============ -->
+    <section class="project-group" id="proj-rbr-web" data-categories="uiux" data-name="RbR Web">
+      <div class="detail-section bg-orange">
+        <div class="big-word" style="opacity:0.3;">Soon<em>.</em></div>
+      </div>
+    </section>
+
+    <!-- ============ UIUX PROJECT: VIET HOTEL (placeholder) ============ -->
+    <section class="project-group" id="proj-viet-hotel" data-categories="uiux" data-name="Viet Hotel">
+      <div class="detail-section bg-stone">
+        <div class="big-word" style="opacity:0.3;">Soon<em>.</em></div>
+      </div>
+    </section>
+
+    <!-- ============ MOTION PROJECT: RBR TILE & EVENT (placeholder) ============ -->
+    <section class="project-group" id="proj-rbr-tile-event" data-categories="motion" data-name="RbR Tile &amp; Event">
+      <div class="detail-section bg-deep">
+        <div class="big-word" style="opacity:0.3;">Soon<em>.</em></div>
+      </div>
+    </section>
+
+    <!-- ============ VIDEO/AI PROJECT: LINA KOL (placeholder) ============ -->
+    <section class="project-group" id="proj-lina-kol" data-categories="video,ai" data-name="Lina KOL">
+      <div class="detail-section bg-sage">
+        <div class="big-word" style="opacity:0.3;">Soon<em>.</em></div>
+      </div>
+    </section>
+
+    <!-- ============ PRINT PROJECT: IMPACT FOUNDATION (placeholder) ============ -->
+    <section class="project-group" id="proj-impact-foundation" data-categories="print" data-name="Impact Foundation">
+      <div class="detail-section bg-blue">
+        <div class="big-word" style="opacity:0.3; color:#fff;">Soon<em>.</em></div>
       </div>
     </section>
 
@@ -712,38 +659,13 @@
   });
 
   // --- Image loading placeholders ---
-  const funnyMessages = [
-    "Hang tight, pixels are commuting…",
-    "Bribing the internet for faster speeds…",
-    "Your aesthetic is loading, please hold",
-    "Teaching electrons to move faster…",
-    "Unpacking creativity, one byte at a time",
-    "Almost there — the art gods are approving this",
-    "Loading gorgeous stuff, do NOT panic",
-    "We asked the server nicely. Still waiting",
-    "This one's worth the wait, promise",
-    "Downloading vibes at full speed…",
-    "Hold on, good things take a sec",
-    "Pixels getting dressed, nearly ready",
-    "Your eyes are about to be blessed",
-    "Connecting to the beauty dimension…",
-    "Shh, the image is trying its best",
-    "Loading level: chef's kiss incoming",
-  ];
-
-  document.querySelectorAll('.gallery-item').forEach((item, i) => {
-    const msg = funnyMessages[i % funnyMessages.length];
-    item.setAttribute('data-placeholder', msg);
+  document.querySelectorAll('.gallery-item').forEach((item) => {
     const img = item.querySelector('img');
     if (img) {
       if (img.complete && img.naturalWidth > 0) {
         item.classList.add('loaded');
       } else {
         img.addEventListener('load', () => item.classList.add('loaded'));
-        img.addEventListener('error', () => {
-          item.classList.add('load-error');
-          item.removeAttribute('data-placeholder');
-        });
       }
     }
   });

@@ -9,7 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800;900&family=Caveat:wght@400;500&display=swap" rel="stylesheet">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; overflow-x: hidden; }
   body {
     font-family: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     background: #ffffff;
@@ -17,6 +17,7 @@
     line-height: 1.4;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
   }
   a { color: inherit; text-decoration: none; }
 
@@ -111,6 +112,41 @@
   }
   .project-tabs-bar::-webkit-scrollbar { display: none; }
   .project-tabs-bar.show { display: flex; }
+
+  /* Scroll progress bar below tabs */
+  .tabs-scroll-wrap {
+    display: none;
+    margin: 0 -40px;
+    padding: 0;
+    background: #fafafa;
+    position: sticky;
+    top: calc(65px + 44px);
+    z-index: 48;
+    pointer-events: none;
+  }
+  .tabs-scroll-wrap.show { display: block; }
+  .tabs-scroll-track {
+    height: 4px;
+    background: #e5e5e5;
+  }
+  .tabs-scroll-thumb {
+    height: 100%;
+    background: #c0c0c0;
+    transition: width 0.15s ease, transform 0.1s ease;
+  }
+
+  /* Right-edge fade to hint more content */
+  .project-tabs-bar.show::after {
+    content: "";
+    position: sticky;
+    right: 0;
+    flex-shrink: 0;
+    width: 56px;
+    align-self: stretch;
+    background: linear-gradient(to right, transparent, #fafafa 85%);
+    pointer-events: none;
+    margin-left: -56px;
+  }
 
   .project-tab {
     display: inline-flex;
@@ -283,13 +319,31 @@
   @media (max-width: 960px) {
     .navbar { padding: 14px 20px; }
     .navbar nav { display: none; }
-    .split-container { grid-template-columns: 1fr; }
+    .split-container { grid-template-columns: 1fr; width: 100%; }
     .left-panel { position: static; height: auto; padding: 40px 24px; border-right: none; border-bottom: 1px solid #e5e5e5; }
-    .right-panel { padding: 24px; }
+    .right-panel { padding: 24px; width: 100%; overflow-x: hidden; }
     .filter-grid { grid-template-columns: 1fr; }
     .typo-spec .typo-h { font-size: 56px; }
     .phones-row { flex-direction: row; }
-    .project-tabs-bar { padding: 10px 24px 8px; margin: -24px -24px 0; top: 60px; }
+    .project-tabs-bar { padding: 10px 24px 8px; margin: -24px -24px 0; top: 60px; box-shadow: 0 -24px 0 0 #fafafa; }
+
+    /* Fix: bỏ aspect-ratio cứng trên mobile để nội dung không bị cắt */
+    .detail-section,
+    .detail-section.tall {
+      aspect-ratio: unset;
+      min-height: 200px;
+      padding: 28px 20px;
+    }
+    .big-word { font-size: clamp(40px, 12vw, 72px); }
+    .mock-card { width: 100%; max-width: 100%; padding: 20px; }
+    .mock-card .stat { font-size: 28px; }
+    .palette { width: 100%; max-width: 100%; }
+    .grid-3 { width: 100%; max-width: 100%; }
+    .typo-spec { width: 100%; max-width: 100%; }
+    .typo-spec .typo-h { font-size: 48px; }
+    .wireframe { width: 100%; max-width: 100%; }
+    .phones-row { gap: 12px; }
+    .phone { width: 130px; }
   }
 </style>
 </head>
@@ -349,6 +403,12 @@
 
     <!-- Sticky Project Tabs Bar (shown when any category filter is active) -->
     <div class="project-tabs-bar" id="projectTabsBar"></div>
+    <!-- Scroll progress indicator -->
+    <div class="tabs-scroll-wrap" id="tabsScrollWrap">
+      <div class="tabs-scroll-track">
+        <div class="tabs-scroll-thumb" id="tabsScrollThumb"></div>
+      </div>
+    </div>
 
     <!-- ============ PROJECT: ONWA (Branding) ============ -->
     <section class="project-group" id="proj-onwa" data-categories="branding" data-name="Onwa">
@@ -577,6 +637,33 @@
   const emptyState = document.getElementById('emptyState');
   const projectsPanel = document.getElementById('projects');
   const tabsBar = document.getElementById('projectTabsBar');
+  const tabsScrollWrap = document.getElementById('tabsScrollWrap');
+  const tabsScrollThumb = document.getElementById('tabsScrollThumb');
+
+  // Show scroll hint bar when tabs overflow
+  function updateScrollThumb() {
+    const scrollable = tabsBar.scrollWidth - tabsBar.clientWidth;
+    if (scrollable <= 0) { tabsScrollWrap.classList.remove('show'); return; }
+    tabsScrollWrap.classList.add('show');
+    // thumb moves as a scroll indicator: width proportional, position follows scroll
+    const progress = tabsBar.scrollLeft / scrollable;
+    const trackW = tabsScrollWrap.querySelector('.tabs-scroll-track').offsetWidth;
+    const thumbW = Math.max(40, (tabsBar.clientWidth / tabsBar.scrollWidth) * trackW);
+    tabsScrollThumb.style.width = thumbW + 'px';
+    tabsScrollThumb.style.transform = 'translateX(' + (progress * (trackW - thumbW)) + 'px)';
+  }
+  tabsBar.addEventListener('scroll', updateScrollThumb, { passive: true });
+
+  // Update margin on mobile for scroll wrap
+  function fixScrollWrapMargin() {
+    const isMobile = window.innerWidth <= 960;
+    const m = isMobile ? '-24px' : '-40px';
+    tabsScrollWrap.style.margin = `0 ${m}`;
+    tabsScrollWrap.style.padding = '0';
+    tabsScrollWrap.style.top = isMobile ? 'calc(60px + 44px)' : 'calc(65px + 44px)';
+  }
+  window.addEventListener('resize', () => { fixScrollWrapMargin(); updateScrollThumb(); });
+  fixScrollWrapMargin();
 
   // --- Count categories from DOM ---
   const allCategories = {};
@@ -599,6 +686,7 @@
     );
     if (matches.length < 2) {
       tabsBar.classList.remove('show');
+      tabsScrollWrap.classList.remove('show');
       return matches;
     }
     matches.forEach((g, i) => {
@@ -615,6 +703,7 @@
       tabsBar.appendChild(btn);
     });
     tabsBar.classList.add('show');
+    setTimeout(updateScrollThumb, 50);
 
     // Trigger hint animation on non-active tabs to signal scrollability
     setTimeout(() => {

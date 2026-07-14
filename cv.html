@@ -110,24 +110,31 @@
     margin-bottom: 36px;
   }
   .personal-info {
-    border-top: 1px solid #e5e5e5;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 48px;
+    row-gap: 28px;
+    padding: 32px 0;
     max-width: 900px;
   }
-  .personal-info .info-row {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 10px 32px;
-    padding: 16px 0;
-    border-bottom: 1px solid #e5e5e5;
-    font-size: 14px;
-    font-weight: 500;
-    color: #525252;
+  .personal-info .info-cell .info-label {
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #a3a3a3;
+    font-weight: 600;
+    margin-bottom: 8px;
   }
-  .personal-info .info-row span { min-width: 160px; }
-  .personal-info .info-row span:last-child { text-align: right; }
+  .personal-info .info-cell .info-value {
+    font-size: 15px;
+    font-weight: 500;
+    color: #0a0a0a;
+  }
   @media (max-width: 600px) {
-    .personal-info .info-row span:last-child { text-align: left; }
+    .personal-info { grid-template-columns: 1fr 1fr; column-gap: 32px; }
+  }
+  @media (max-width: 420px) {
+    .personal-info { grid-template-columns: 1fr; }
   }
   .download-btn {
     display: inline-flex;
@@ -344,33 +351,23 @@
 
   /* Tools */
   .tools-grid {
-    display: flex;
-    flex-wrap: wrap;
-    row-gap: 28px;
-    column-gap: 44px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 0;
+    border-top: 1px solid #e5e5e5;
+    border-left: 1px solid #e5e5e5;
   }
-  .tool {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-size: 15px;
+  .tools-grid .tool {
+    padding: 24px 20px;
+    border-right: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+    font-size: 18px;
     font-weight: 500;
-    color: #262626;
     letter-spacing: -0.01em;
+    color: #0a0a0a;
+    transition: background 0.2s ease, color 0.2s ease;
   }
-  .tool-icon {
-    width: 32px;
-    height: 32px;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    font-size: 12px;
-    font-weight: 700;
-    flex-shrink: 0;
-    letter-spacing: 0;
-  }
+  .tools-grid .tool:hover { background: #0a0a0a; color: #fff; }
 
   /* Languages */
   .lang-row {
@@ -495,17 +492,29 @@
   <div class="subtitle">Multimedia Designer &amp; Content Creator (Freelancer)</div>
 
   <div class="personal-info">
-    <div class="info-row">
-      <span>04/08/2001</span>
-      <span>huongdo4954@gmail.com</span>
+    <div class="info-cell">
+      <div class="info-label">Date of birth</div>
+      <div class="info-value">04/08/2001</div>
     </div>
-    <div class="info-row">
-      <span>Female</span>
-      <span>Son Ky, Tan Phu, Ho Chi Minh</span>
+    <div class="info-cell">
+      <div class="info-label">Gender</div>
+      <div class="info-value">Female</div>
     </div>
-    <div class="info-row">
-      <span>+84 337 492 814</span>
-      <span>www.behance.net/cmhng10</span>
+    <div class="info-cell">
+      <div class="info-label">Phone</div>
+      <div class="info-value">+84 337 492 814</div>
+    </div>
+    <div class="info-cell">
+      <div class="info-label">Email</div>
+      <div class="info-value">huongdo4954@gmail.com</div>
+    </div>
+    <div class="info-cell">
+      <div class="info-label">Address</div>
+      <div class="info-value">Son Ky, Tan Phu, Ho Chi Minh</div>
+    </div>
+    <div class="info-cell">
+      <div class="info-label">Portfolio</div>
+      <div class="info-value">www.behance.net/cmhng10</div>
     </div>
   </div>
 </section>
@@ -655,21 +664,21 @@
     <div>
       <h2>Tools I <em>use</em>.</h2>
       <div class="tools-grid">
-        <div class="tool"><span class="tool-icon" style="background:linear-gradient(135deg,#F24E1E,#A259FF)">Fi</span>Figma</div>
-        <div class="tool"><span class="tool-icon" style="background:#001E36">Ps</span>Photoshop</div>
-        <div class="tool"><span class="tool-icon" style="background:#33020a">Ai</span>Illustrator</div>
-        <div class="tool"><span class="tool-icon" style="background:#00005b">Pr</span>Premiere Pro</div>
-        <div class="tool"><span class="tool-icon" style="background:#49021f">Id</span>InDesign</div>
-        <div class="tool"><span class="tool-icon" style="background:#7a2e00">Zb</span>Zbrush</div>
-        <div class="tool"><span class="tool-icon" style="background:#1d033d">Ae</span>After Effect</div>
-        <div class="tool"><span class="tool-icon" style="background:#003366">Dw</span>Dreamweaver</div>
-        <div class="tool"><span class="tool-icon" style="background:#0696d7">M</span>Autodesk Maya</div>
-        <div class="tool"><span class="tool-icon" style="background:#0a6640">Pt</span>Substance Painter</div>
-        <div class="tool"><span class="tool-icon" style="background:#0a0a0a">U</span>Unreal</div>
-        <div class="tool"><span class="tool-icon" style="background:conic-gradient(from 90deg,#e0472e,#2ba7de,#e0472e)">Dr</span>Davinci Resolve</div>
-        <div class="tool"><span class="tool-icon" style="background:#ff6534">✱</span>Claude</div>
-        <div class="tool"><span class="tool-icon" style="background:linear-gradient(135deg,#4285F4,#9B72CB,#D96570)">✦</span>Gemini</div>
-        <div class="tool"><span class="tool-icon" style="background:linear-gradient(135deg,#00C2A8,#0072FF)">K</span>Kling</div>
+        <div class="tool">Figma</div>
+        <div class="tool">Photoshop</div>
+        <div class="tool">Illustrator</div>
+        <div class="tool">Premiere Pro</div>
+        <div class="tool">InDesign</div>
+        <div class="tool">Zbrush</div>
+        <div class="tool">After Effect</div>
+        <div class="tool">Dreamweaver</div>
+        <div class="tool">Autodesk Maya</div>
+        <div class="tool">Substance Painter</div>
+        <div class="tool">Unreal</div>
+        <div class="tool">Davinci Resolve</div>
+        <div class="tool">Claude</div>
+        <div class="tool">Gemini</div>
+        <div class="tool">Kling</div>
       </div>
     </div>
   </div>

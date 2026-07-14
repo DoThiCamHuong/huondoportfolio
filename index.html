@@ -317,8 +317,8 @@
   /* Branding Gallery */
   .branding-gallery { display: none; flex-direction: column; align-items: center; gap: 0; width: 100%; }
   .branding-gallery.show { display: flex; }
-  #proj-motion-reel .branding-gallery { gap: 42px; }
-  .branding-gallery .gallery-item { width: 100%; display: flex; justify-content: center; position: relative; min-height: 120px; background: #f5f5f5; }
+  .branding-gallery .gallery-item { width: 100%; display: flex; justify-content: center; position: relative; background: #f5f5f5; }
+  .branding-gallery .gallery-item:not(.loaded) { min-height: 120px; }
   .branding-gallery .gallery-item img { width: 100%; height: auto; display: block; object-fit: contain; position: relative; z-index: 1; }
 
   /* Hide Google Drive iframe zoom controls with overlay */
@@ -408,7 +408,7 @@
     <div>
       <div class="booking-pill">Portfolio 2026</div>
 
-      <h1>Multimedia design &amp; content for ambitious brands</h1>
+      <h1>Designing with Purpose, Creating with Impact</h1>
 
       <p class="intro">
         I'm <strong>Do Thi Cam Huong</strong> — a Multimedia Designer &amp; Content Creator based in Ho Chi Minh City. 3+ years crafting brand identity, UI/UX, motion graphics and content for agencies and brands.
@@ -422,10 +422,10 @@
 
       <div class="panel-label">what i'm best at <span style="opacity: 0.5; margin-left: 6px;">(click to filter)</span></div>
       <div class="filter-grid" id="filterGrid">
-        <div class="item" data-filter="branding">Branding <span class="count"></span></div>
+        <div class="item" data-filter="branding">Brand Identity <span class="count"></span></div>
         <div class="item" data-filter="uiux">UI / UX Design <span class="count"></span></div>
-        <div class="item" data-filter="motion">Motion & Edit <span class="count"></span></div>
-        <div class="item" data-filter="content">Content Creator <span class="count"></span></div>
+        <div class="item" data-filter="motion">Motion Design & Editing <span class="count"></span></div>
+        <div class="item" data-filter="content">Content Creation <span class="count"></span></div>
       </div>
 
     </div>
@@ -516,15 +516,13 @@
       </div>
     </section>
 
-    <!-- ============ PROJECT 1: LIFE ON ============ -->
+    <!-- ============ LIFE ON (placeholder) ============ -->
     <section class="project-group" id="proj-life-on" data-categories="content" data-name="Life On">
-
-      <div class="detail-section bg-cream">
-        <div class="big-word">Life <em>On</em></div>
-      </div>
-
       <div class="detail-section bg-stone">
-        <div class="big-word" style="opacity:0.3;">Coming Soon<em>...</em></div>
+        <div style="text-align:center;">
+          <div class="big-word" style="opacity:0.3;">Life <em>On</em></div>
+          <div style="opacity:0.3; font-size:14px; letter-spacing:0.15em; text-transform:uppercase; font-weight:600; margin-top:14px;">Coming Soon</div>
+        </div>
       </div>
     </section>
 
@@ -615,11 +613,11 @@
     </section>
 
     <!-- ============ MOTION PROJECT: MOTION REEL ============ -->
-    <section class="project-group" id="proj-motion-reel" data-categories="motion" data-name="Motion Reel" data-thumb="https://drive.google.com/thumbnail?id=1bqopFbFA_YH5uNxXd0F3a9P7kvKkn7zR&sz=w300">
+    <section class="project-group" id="proj-motion-reel" data-categories="motion" data-name="Motion Reel" data-thumb="https://drive.google.com/thumbnail?id=1wqUStS5_LDPRL8iw2amKByVEJw3NmxlJ&sz=w300">
       <div class="branding-gallery" style="display:flex;">
-        <div class="gallery-item"><img src="https://lh3.googleusercontent.com/d/1bqopFbFA_YH5uNxXd0F3a9P7kvKkn7zR" alt="8" loading="lazy" /></div>
-        <div class="gallery-item"><img src="https://lh3.googleusercontent.com/d/1pbQlQjUXPwB1e03uwcEOIxiowxh3AEA3" alt="9" loading="lazy" /></div>
-        <div class="gallery-item"><img src="https://lh3.googleusercontent.com/d/1da1MsO-y0YeXz0tUZEbhc0s3I5pcVrJY" alt="10" loading="lazy" /></div>
+        <div class="gallery-item"><img src="https://lh3.googleusercontent.com/d/1wqUStS5_LDPRL8iw2amKByVEJw3NmxlJ" alt="1" loading="lazy" /></div>
+        <div class="gallery-item"><img src="https://lh3.googleusercontent.com/d/1yjL4dirIK72Y-qCN3h7Z1aFaW8xzmuU7" alt="2" loading="lazy" /></div>
+        <div class="gallery-item"><img src="https://lh3.googleusercontent.com/d/1hsFWFSltKg1EY4_pc-rB_TMvUa594UN2" alt="3" loading="lazy" /></div>
       </div>
     </section>
 
